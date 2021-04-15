@@ -1,5 +1,6 @@
 import 'package:dizi_ayiraci/models/company.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
+import 'package:dizi_ayiraci/widgets/dropdownSezon.dart';
 import 'package:dizi_ayiraci/widgets/dropdownbutton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class DiziScreen extends StatelessWidget {
         children: [
           Text(diziArgs.diziAdi),
           DropDownButton(),
+          DropDownSezon(),
         ],
       ),
     );
