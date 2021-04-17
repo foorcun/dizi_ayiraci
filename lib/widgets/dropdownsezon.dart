@@ -1,4 +1,6 @@
+import 'package:dizi_ayiraci/blocs/episode_bloc.dart';
 import 'package:dizi_ayiraci/models/sezon.dart';
+import 'package:dizi_ayiraci/widgets/listofeps.dart';
 import 'package:flutter/material.dart';
 
 class DropDownSezon extends StatefulWidget {
@@ -58,10 +60,26 @@ class _DropDownSezonState extends State<DropDownSezon> {
               height: 20.0,
             ),
             Text('Selected: ${_selectedSezon.sezonAdi}'),
+            //setSezon(_selectedSezon),
+            // ListOfEps(_selectedSezon, setState(() => {}))
+            listOfEps(_selectedSezon)
+
+            ///
           ],
         ),
       ),
     );
+  }
+
+  // Widget setSezon(Sezon selectedSezon) {
+  //   return StreamBuilder(
+  //     initialData: _selectedSezon,
+  //     stream: episodeBloc.getStream,
+  //   );
+  // }
+
+  Widget listOfEps(Sezon selectedSezon) {
+    return Text(selectedSezon.sezonAdi + " bölüm listesi gelecek");
   }
 }
 
