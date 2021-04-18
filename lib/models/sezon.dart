@@ -8,13 +8,13 @@ class Sezon {
 
   Sezon(this.sezonAdi, this.epList); //kısaca yazılmış constructor
 
-  static List<Sezon> getSezons() {
-    return <Sezon>[
-      Sezon('1. sezon', EpisodeService().getAllDefault()),
-      Sezon('2. sezon', EpisodeService().getAllDefault()),
-      Sezon('3. sezon', EpisodeService().getAllDefault()),
-      Sezon('4. sezon', EpisodeService().getAllDefault()),
-      Sezon('5. sezon', EpisodeService().getAllDefault()),
-    ];
-  }
+  // static List<Sezon> getSezons() {
+  //   return <Sezon>[
+  //     Sezon('1. sezon', EpisodeService().getAllDefault()),
+  //     Sezon('2. sezon', EpisodeService().getAllDefault()),
+  //     Sezon('3. sezon', EpisodeService().getAllDefault()),
+  //     Sezon('4. sezon', EpisodeService().getAllDefault()),
+  //     Sezon('5. sezon', EpisodeService().getAllDefault()),
+  //   ];
+  // }
 }

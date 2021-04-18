@@ -19,14 +19,12 @@ class SezonService {
       Sezon('1. sezon', episodeBloc.getAll()),
     );
     sezons.add(
-      Sezon('2. sezon', episodeBloc.getAll()),
+      Sezon('2. sezon', episodeBloc.getAll2()),
     );
     sezons.add(
-      Sezon('3. sezon', episodeBloc.getAll()),
+      Sezon('3. sezon', episodeBloc.getAll3()),
     );
-    sezons.add(
-      Sezon('4. sezon', episodeBloc.getAll()),
-    );
+
     // Sezon('1. sezon', EpisodeService().getAllDefault()),
     //   Sezon('2. sezon', EpisodeService().getAllDefault()),
     //   Sezon('3. sezon', EpisodeService().getAllDefault()),

@@ -1,7 +1,6 @@
 import 'package:dizi_ayiraci/blocs/episode_bloc.dart';
 import 'package:dizi_ayiraci/blocs/sezon_bloc.dart';
 import 'package:dizi_ayiraci/models/sezon.dart';
-import 'package:dizi_ayiraci/widgets/listofeps.dart';
 import 'package:flutter/material.dart';
 
 class DropDownSezon extends StatefulWidget {
@@ -53,20 +52,16 @@ class _DropDownSezonState extends State<DropDownSezon> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Text("Select a sezon"),
-            ),
-
             // SizedBox(
             //   height: 20.0,
             // ),
             Expanded(
-              flex: 1,
-              child: DropdownButton(
-                value: _selectedSezon,
-                items: _dropdownMenuItems,
-                onChanged: onChangeDropdownItem,
+              child: Container(
+                child: DropdownButton(
+                  value: _selectedSezon,
+                  items: _dropdownMenuItems,
+                  onChanged: onChangeDropdownItem,
+                ),
               ),
             ),
             // SizedBox(
@@ -107,34 +102,34 @@ class _DropDownSezonState extends State<DropDownSezon> {
     );
   }
 
-  Widget listOfEps(Sezon selectedSezon) {
-    Sezon _selectedSezon;
-    listOfEps(this._selectedSezon);
-    return Column(
-      children: [
-        Text(_selectedSezon.sezonAdi + " bölüm listesi gelecek"),
-        // ListView(
-        //   children: [
-        //     Text("engin"),
-        //     Text("aa"),
-        //     Text("fff"),
-        //   ],
-        // ),
-        ListView.builder(
-          itemCount: 2,
-          // itemCount: selectedSezon.epList.length,
-          // shrinkWrap: true,
-          // physics: ClampingScrollPhysics(),
-          itemBuilder: (BuildContext context, index) {
-            // final list = selectedSezon.epList;
-            return ListTile(
-              // title: Text(list[index].episodeName),
-              title: Text("selammmmmmmm"),
-            );
-            // return Text("selammmmmmmm");
-          },
-        )
-      ],
-    );
-  }
+  // Widget listOfEps(Sezon selectedSezon) {
+  //   Sezon _selectedSezon;
+  //   listOfEps(this._selectedSezon);
+  //   return Column(
+  //     children: [
+  //       Text(_selectedSezon.sezonAdi + " bölüm listesi gelecek"),
+  //       // ListView(
+  //       //   children: [
+  //       //     Text("engin"),
+  //       //     Text("aa"),
+  //       //     Text("fff"),
+  //       //   ],
+  //       // ),
+  //       ListView.builder(
+  //         itemCount: 2,
+  //         // itemCount: selectedSezon.epList.length,
+  //         // shrinkWrap: true,
+  //         // physics: ClampingScrollPhysics(),
+  //         itemBuilder: (BuildContext context, index) {
+  //           // final list = selectedSezon.epList;
+  //           return ListTile(
+  //             // title: Text(list[index].episodeName),
+  //             title: Text("selammmmmmmm"),
+  //           );
+  //           // return Text("selammmmmmmm");
+  //         },
+  //       )
+  //     ],
+  //   );
+  // }
 }
