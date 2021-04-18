@@ -1,29 +1,186 @@
+import 'package:dizi_ayiraci/blocs/episode_bloc.dart';
 import 'package:dizi_ayiraci/models/company.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
+import 'package:dizi_ayiraci/models/sezon.dart';
 import 'package:dizi_ayiraci/widgets/dropdownSezon.dart';
 import 'package:dizi_ayiraci/widgets/dropdownbutton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DiziScreen extends StatelessWidget {
+class DiziScreen extends StatefulWidget {
+  @override
+  _DiziScreenState createState() => _DiziScreenState();
+}
+
+class _DiziScreenState extends State<DiziScreen> {
+  Sezon parentSezon = Sezon('benden. sezon', episodeBloc.getAll());
+
+  void parentChange(Sezon newString) {
+    setState(() {
+      parentSezon = newString;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     //final ScreenArguments args =
 
     final Dizi diziArgs = ModalRoute.of(context).settings.arguments as Dizi;
 
+    // @override
+    // void initState() {
+    //   super.initState();
+    //   _sezonController.addListener();
+    // }
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dizilerim"),
-      ),
-      body: Column(
-        children: [
-          Text(diziArgs.diziAdi),
-          DropDownButton(),
-          DropDownSezon(),
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text("Dizilerim"),
+        ),
+        body: Column(
+          children: [
+            Expanded(flex: 1, child: Text(diziArgs.diziAdi)),
+            Expanded(
+              flex: 1,
+              child: ListView(children: [
+                Text(parentSezon.sezonAdi == null
+                    ? "bu boş bea"
+                    : parentSezon.sezonAdi),
+                Text(parentSezon.sezonAdi == null
+                    ? "bu boş bea"
+                    : parentSezon.sezonAdi),
+                Text(parentSezon.sezonAdi == null
+                    ? "bu boş bea"
+                    : parentSezon.sezonAdi),
+                Text(parentSezon.sezonAdi == null
+                    ? "bu boş bea"
+                    : parentSezon.sezonAdi),
+                Text(parentSezon.sezonAdi == null
+                    ? "bu boş bea"
+                    : parentSezon.sezonAdi),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+              ]),
+
+              //Column(
+              // children: <Widget>[
+              // Text(diziArgs.diziAdi),
+              // SingleChildScrollView(
+              //     child: Column(
+              //   children: [
+              //     ListView.builder(
+              //         itemCount: 55,
+              //         shrinkWrap: true,
+              //         itemBuilder: (BuildContext context, index) {
+              //           return Text("hadi bakamm");
+              //         }),
+              //   ],
+              // )),
+              // DropDownButton(),
+              // DropDownSezon(),
+
+              // ],
+              // ),
+            ),
+            Expanded(
+              flex: 2,
+              child: DropDownSezon(
+                customFunction: parentChange,
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: ListView(children: [
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+                Text("selmammm"),
+              ]),
+            ),
+
+            Expanded(flex: 1, child: listOfEps()),
+
+            // Expanded(
+            //   flex: 1,
+            //   child: DropDownButton(),
+            // ),
+          ],
+        ));
+  }
+
+  listOfEps() {
+    return Column(children: [
+      Text(" bölüm listesi gelecek"),
+      ListView.builder(
+        itemCount: 2,
+        // itemCount: selectedSezon.epList.length,
+        // shrinkWrap: true,
+        // physics: ClampingScrollPhysics(),
+        itemBuilder: (BuildContext context, index) {
+          // final list = selectedSezon.epList;
+          return ListTile(
+            // title: Text(list[index].episodeName),
+            title: Text("selammmmmmmm"),
+          );
+          // return Text("selammmmmmmm");
+        },
+      )
+    ]);
   }
 }
 
