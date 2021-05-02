@@ -55,7 +55,8 @@ class DizisListScreen extends StatelessWidget {
               context,
               "/dizi",
               // arguments: secilenDizi = list[index],
-              arguments: Dizi(list[index].diziAdi, list[index].fotoLink),
+              arguments: Dizi.withData(list[index].diziAdi,
+                  list[index].fotoLink, list[index].sezonSayisi),
             );
             print("suna tıklandı.");
             print(list[index].diziAdi);
