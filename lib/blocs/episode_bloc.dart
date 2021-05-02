@@ -11,6 +11,14 @@ class EpisodeBloc {
   List<Episode> getAll() {
     return EpisodeService().getAllDefault();
   }
+
+  List<Episode> getAll2() {
+    return EpisodeService().getAllDefault2();
+  }
+
+  List<Episode> getAll3() {
+    return EpisodeService().getAllDefault3();
+  }
 }
 
 final episodeBloc = EpisodeBloc();
