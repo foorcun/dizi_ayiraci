@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dizi_ayiraci/data/dizi_service.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
+import 'package:dizi_ayiraci/settings/servicesettings.dart';
 
 // import 'package:bloc_sample/data/product_service.dart';
 // import 'package:bloc_sample/models/product.dart';
@@ -12,7 +13,11 @@ class DiziBloc {
   Stream get getStream => diziStreamController.stream;
 
   List<Dizi> getAll() {
-    return DiziService.getAll();
+    return seciliDiziService.getAll();
+  }
+
+  void printAll() {
+    seciliDiziService.printAll();
   }
 }
 

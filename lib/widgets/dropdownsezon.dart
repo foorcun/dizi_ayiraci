@@ -25,7 +25,7 @@ class _DropDownSezonState extends State<DropDownSezon> {
   }
 
   List<DropdownMenuItem<Sezon>> buildDropdownMenuItems(List companies) {
-    List<DropdownMenuItem<Sezon>> items = List();
+    List<DropdownMenuItem<Sezon>> items = [];
     for (Sezon sezon in companies) {
       items.add(
         DropdownMenuItem(
