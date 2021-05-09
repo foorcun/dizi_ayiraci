@@ -1,8 +1,8 @@
 class Episode {
   String episodeName;
 
-  Episode.noName();
-  Episode(this.episodeName);
+  Episode();
+  Episode.withName(this.episodeName);
 
   // List<Episode> getEps() {
   //   return <Episode>[

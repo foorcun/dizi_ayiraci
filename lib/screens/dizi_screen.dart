@@ -1,7 +1,10 @@
 import 'package:dizi_ayiraci/blocs/episode_bloc.dart';
+import 'package:dizi_ayiraci/blocs/in_memory_blocs/tiklanan_dizi_bloc.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/models/sezon.dart';
 import 'package:dizi_ayiraci/widgets/dropdownSezon.dart';
+import 'package:dizi_ayiraci/widgets/episodelistwidget.dart';
+import 'package:dizi_ayiraci/widgets/sezon_row_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +23,7 @@ class _DiziScreenState extends State<DiziScreen> {
 
       parentSezon = newString;
       print("parentChange " + parentSezon.epList.length.toString());
+      print("bu nul mu");
     });
   }
 
@@ -27,7 +31,9 @@ class _DiziScreenState extends State<DiziScreen> {
   Widget build(BuildContext context) {
     //final ScreenArguments args =
 
-    final Dizi diziArgs = ModalRoute.of(context).settings.arguments as Dizi;
+    // final Dizi diziTiklanan =
+    //     ModalRoute.of(context).settings.arguments as Dizi; // tıklanan dizi
+    Dizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
 
     // @override
     // void initState() {
@@ -36,68 +42,81 @@ class _DiziScreenState extends State<DiziScreen> {
     // }
     return Scaffold(
       appBar: AppBar(
-        title: Text(diziArgs.diziAdi),
+        title: Text(diziTiklanan.diziAdi),
       ),
-      body: Column(
-        children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Text("sushi"),
-                SizedBox(
-                  width: 100,
-                ),
-                Text("asdf"),
-                SizedBox(
-                  width: 100,
-                ),
-                Text("fdsa"),
-                SizedBox(
-                  width: 100,
-                ),
-                Text("wer"),
-              ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.all(25.0),
+              padding: EdgeInsets.all(25.0),
+              child: Column(
+                children: [
+                  Text("conteinerim"),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: SezonRow(),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              children: [
-                Text("sushi"),
-                SizedBox(
-                  height: 100,
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 5.0),
+              width: 250,
+              height: 250,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                    Text("Column text"),
+                  ],
                 ),
-                Text("asdf"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("fdsa"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("wer"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("wer"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("wer"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("wer"),
-              ],
+              ),
             ),
-          ),
-        ],
+            // Text("1. Sezon"),
+
+            //child: Text("diziTiklanan"),
+            // Row(
+            //   children: [
+            //     Text("sushi"),
+            //     SizedBox(
+            //       width: 100,
+            //     ),
+            //     Text("asdf"),
+            //     SizedBox(
+            //       width: 100,
+            //     ),
+            //     Text("fdsa"),
+            //     SizedBox(
+            //       width: 100,
+            //     ),
+            //     Text("wer"),
+            //   ],
+            // ),
+            // EpisodeListWidget(diziTiklanan), //// bunu episode list widget yapcaz
+          ],
+        ),
       ),
     );
 
     // return Scaffold(
     //     appBar: AppBar(
-    //       title: Text(diziArgs.diziAdi),
+    //       title: Text(diziTiklanan.diziAdi),
     //     ),
     //     body: Column(
     //       children: [

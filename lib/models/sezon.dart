@@ -6,7 +6,9 @@ class Sezon {
 
   List<Episode> epList;
 
-  Sezon(this.sezonAdi, this.epList); //kısaca yazılmış constructor
+  Sezon.withName(this.sezonAdi);
+
+  Sezon.withData(this.sezonAdi, this.epList); //kısaca yazılmış constructor
 
   // static List<Sezon> getSezons() {
   //   return <Sezon>[

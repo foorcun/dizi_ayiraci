@@ -8,9 +8,9 @@ class SezonBloc {
 
   Stream get getStream => sezonStreamController.stream;
 
-  List<Sezon> getAll() {
-    return SezonService.getAll();
-  }
+  // List<Sezon> getAll() {
+  //   return SezonService.getAll();
+  // }
 }
 
 final sezonBloc = SezonBloc();

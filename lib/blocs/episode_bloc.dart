@@ -8,17 +8,17 @@ class EpisodeBloc {
 
   Stream get getStream => epsStreamController.stream;
 
-  List<Episode> getAll() {
-    return EpisodeService().getAllDefault();
-  }
+  // List<Episode> getAll() {
+  //   return EpisodeService().getAllDefault();
+  // }
 
-  List<Episode> getAll2() {
-    return EpisodeService().getAllDefault2();
-  }
+  // List<Episode> getAll2() {
+  //   return EpisodeService().getAllDefault2();
+  // }
 
-  List<Episode> getAll3() {
-    return EpisodeService().getAllDefault3();
-  }
+  // List<Episode> getAll3() {
+  //   return EpisodeService().getAllDefault3();
+  // }
 }
 
 final episodeBloc = EpisodeBloc();
