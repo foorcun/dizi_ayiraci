@@ -1,6 +1,7 @@
 import 'package:dizi_ayiraci/blocs/episode_bloc.dart';
 import 'package:dizi_ayiraci/blocs/in_memory_blocs/tiklanan_dizi_bloc.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
+import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
 import 'package:dizi_ayiraci/models/sezon.dart';
 import 'package:dizi_ayiraci/widgets/dropdownSezon.dart';
 import 'package:dizi_ayiraci/widgets/episodelistwidget.dart';
@@ -33,7 +34,7 @@ class _DiziScreenState extends State<DiziScreen> {
 
     // final Dizi diziTiklanan =
     //     ModalRoute.of(context).settings.arguments as Dizi; // tıklanan dizi
-    Dizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
+    TiklananDizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
 
     // @override
     // void initState() {
@@ -42,7 +43,7 @@ class _DiziScreenState extends State<DiziScreen> {
     // }
     return Scaffold(
       appBar: AppBar(
-        title: Text(diziTiklanan.diziAdi),
+        title: Text(diziTiklanan.diziTiklanan.diziAdi),
       ),
       body: SafeArea(
         child: Column(
@@ -65,27 +66,29 @@ class _DiziScreenState extends State<DiziScreen> {
               width: 250,
               height: 250,
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                    Text("Column text"),
-                  ],
-                ),
+                child: EpisodeListWidget(), // column() içinde
+                //Column(
+                //children:
+                // [
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                //   Text("Column text"),
+                // ],
+                //),
               ),
             ),
             // Text("1. Sezon"),

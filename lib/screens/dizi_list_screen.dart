@@ -49,7 +49,10 @@ class DizisListScreen extends StatelessWidget {
       itemBuilder: (BuildContext context, index) {
         final list = snapshot.data;
         print(list[0].sezonSayisi); ////////////
+        // print(
+        //     "list[index].epsList " + list[0].sezons[0].epsList[0].episodeName);
 
+        print("buildDiziListItems " + list.toString());
         return ListTile(
           title: Text(list[index].diziAdi),
           subtitle: Text(list[index].fotoLink),

@@ -41,7 +41,7 @@ class TiklananDiziService extends DiziServiceAbstract {
     tiklananDizi.diziTiklanan = dizi;
   }
 
-  Dizi getTiklananDizi() {
-    return tiklananDizi.diziTiklanan;
+  TiklananDizi getTiklananDizi() {
+    return tiklananDizi;
   }
 }

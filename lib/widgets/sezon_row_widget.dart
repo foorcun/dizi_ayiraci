@@ -3,6 +3,7 @@ import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/widgets/episodelistwidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
 
 class SezonRow extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class SezonRow extends StatefulWidget {
 }
 
 class _SezonRowState extends State<SezonRow> {
-  // Sezon clickedSezon;
+  // Sezon clic k edSezon;
 
   // void setClickedSezon(Sezon clickedSezon) {
   //   setState(() {
@@ -21,12 +22,13 @@ class _SezonRowState extends State<SezonRow> {
   //   // return this.clickedSezon;
   // }
 
-  Dizi dizi;
+  TiklananDizi tiklananDizi;
   @override
   Widget build(BuildContext context) {
     // tiklananDiziBloc.startFakeData();
-    dizi = tiklananDiziBloc.getTiklananDizi();
+    tiklananDizi = tiklananDiziBloc.getTiklananDizi();
 
+    Dizi dizi = tiklananDizi.diziTiklanan;
     print("build dizi " + dizi.diziAdi);
 
     // if (dizi.sezons[0].sezonAdi == null) {
@@ -67,7 +69,8 @@ class _SezonRowState extends State<SezonRow> {
       // var clickedSezon = dizi.sezons[i];
       rowItem.add(InkWell(
         onTap: () {
-          print("clickedSezon");
+          tiklananDizi.sezonTiklanan = dizi.sezons[i];
+          print("clickedSezon: " + dizi.sezons[i].sezonAdi);
         },
         child: Container(
             margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 5.0),

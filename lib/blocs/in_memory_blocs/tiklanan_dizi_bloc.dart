@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:dizi_ayiraci/data/in_memory_data/tiklanan_dizi_service.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
+import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
+
 
 class TiklananDiziBloc {
   final diziStreamController = StreamController.broadcast();
@@ -26,7 +28,7 @@ class TiklananDiziBloc {
     TiklananDiziService().setTiklananDizi(dizi);
   }
 
-  Dizi getTiklananDizi() {
+  TiklananDizi getTiklananDizi() {
     return TiklananDiziService().getTiklananDizi();
   }
 }

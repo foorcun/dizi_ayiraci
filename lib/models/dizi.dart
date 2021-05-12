@@ -1,42 +1,17 @@
-import 'package:dizi_ayiraci/models/episode.dart';
 import 'package:dizi_ayiraci/models/sezon.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'dizi.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class Dizi {
-  String diziAdi;
-
-  String fotoLink;
-
+  String diziAdi, fotoLink;
   int sezonSayisi;
   List<Sezon> sezons = [];
 
-  List<Episode> epsList = [];
+  Dizi({this.diziAdi, this.fotoLink, this.sezonSayisi, this.sezons});
 
-  Dizi();
-  Dizi.withMap(list) {
-    diziAdi = list.diziAdi;
-    fotoLink = list.fotoLink;
-    sezonSayisi = int.parse(list.sezonSayisi);
-    sezons = list.sezons;
-    epsList = list.epsList;
-  }
-//(list[index].diziAdi,
-  //     list[index].fotoLink, list[index].sezonSayisi)
+  factory Dizi.fromJson(Map<String, dynamic> data) => _$DiziFromJson(data);
 
-  Dizi.withData(this.diziAdi, this.fotoLink, this.sezonSayisi, this.sezons,
-      this.epsList) {
-    // Dizi.withData(Map<String, dynamic> map) {
-    createSezon(this.sezonSayisi);
-  }
-
-  createSezon(int sezonSayisi) {
-    int j = 1;
-    //print("sezonSayisi " + sezonSayisi.toString());
-    sezons = [];
-    for (var i = 0; i < sezonSayisi; i++) {
-      // Sezon sez = Sezon.withName("$sezonSayisi. sezon");
-      // print(sez.sezonAdi);
-      sezons.add(Sezon.withName("$j. sezon"));
-      j = j + 1;
-    }
-  }
+  Map<String, dynamic> toJson() => _$DiziToJson(this);
 }
