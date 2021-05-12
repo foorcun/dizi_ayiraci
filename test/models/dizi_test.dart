@@ -58,6 +58,7 @@ void main() {
     // print(data[0]["sezons"][0]["episodes"]["bölümAdi"].toString());
 
     print(dizis[0].sezons[0].episodes[0].episodeName.toString());
+    print(dizis[1].sezons[0].episodes[0].episodeName.toString());
     //print(list1.toString());
     // Dizi dizi = Dizi.withData(
     //             list[index].diziAdi,
