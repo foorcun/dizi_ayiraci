@@ -4,11 +4,11 @@ import 'package:dizi_ayiraci/models/episode.dart';
 class Sezon {
   String sezonAdi;
 
-  List<Episode> epList = [];
+  List<Episode> episodes = [];
 
   Sezon.withName(this.sezonAdi);
 
-  Sezon.withData(this.sezonAdi, this.epList); //kısaca yazılmış constructor
+  Sezon.withData(this.sezonAdi, this.episodes); //kısaca yazılmış constructor
 
   // static List<Sezon> getSezons() {
   //   return <Sezon>[

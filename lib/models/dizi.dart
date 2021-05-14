@@ -11,6 +11,8 @@ class Dizi {
 
   Dizi({this.diziAdi, this.fotoLink, this.sezonSayisi, this.sezons});
 
+  Dizi.withName(this.diziAdi);
+
   factory Dizi.fromJson(Map<String, dynamic> data) => _$DiziFromJson(data);
 
   Map<String, dynamic> toJson() => _$DiziToJson(this);

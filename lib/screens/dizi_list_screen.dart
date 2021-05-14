@@ -57,12 +57,7 @@ class DizisListScreen extends StatelessWidget {
           title: Text(list[index].diziAdi),
           subtitle: Text(list[index].fotoLink),
           onTap: () {
-            tiklananDiziBloc.setTiklananDizi(Dizi.withData(
-                list[index].diziAdi,
-                list[index].fotoLink,
-                list[index].sezonSayisi,
-                list[index].sezons,
-                list[index].epsList));
+            tiklananDiziBloc.setTiklananDizi(list[index].diziAdi);
             Navigator.pushNamed(
               context,
               "/dizi",
@@ -78,6 +73,8 @@ class DizisListScreen extends StatelessWidget {
             );
             print("suna tıklandı.");
             print(list[index].diziAdi);
+            print("tiklananDiziBloc.setTiklananDizi( de diziAdi " +
+                tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
           },
           trailing: IconButton(
             icon: Icon(Icons.add_shopping_cart),

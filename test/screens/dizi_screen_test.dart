@@ -10,7 +10,7 @@ void main() {
 
     //ARRANGE
     tiklananDiziBloc.startFakeData();
-    Dizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
+    Dizi diziTiklanan = tiklananDiziBloc.getTiklananDizi().diziTiklanan;
 
     final widget1 = find.text("1. Sezon");
     final widgetTitle = find.text("Attack on Titan");
@@ -36,7 +36,7 @@ void main() {
 
     //ARRANGE
     tiklananDiziBloc.startFakeData();
-    Dizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
+    Dizi diziTiklanan = tiklananDiziBloc.getTiklananDizi().diziTiklanan;
 
     final widgetSezon = find.text("1. Sezon");
     final widgetTitle = find.text("Attack on Titan");

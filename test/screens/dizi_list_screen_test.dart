@@ -16,7 +16,7 @@ void main() {
     print("diziTiklanan.diziTiklanan.sezonAdi " +
         diziTiklanan.sezonTiklanan.sezonAdi);
     print("diziTiklanan.diziTiklanan.episodeName " +
-        diziTiklanan.sezonTiklanan.epList[0].episodeName);
+        diziTiklanan.sezonTiklanan.episodes[0].episodeName);
 
     final widget1 = find.text("1. Sezon");
     final widgetTitle = find.text("Attack on Titan");

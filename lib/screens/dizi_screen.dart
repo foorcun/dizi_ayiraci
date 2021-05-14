@@ -20,10 +20,10 @@ class _DiziScreenState extends State<DiziScreen> {
 
   void parentChange(Sezon newString) {
     setState(() {
-      // print("baslangıc " + parentSezon.epList.length.toString());
+      // print("baslangıc " + parentSezon.episodes.length.toString());
 
       parentSezon = newString;
-      print("parentChange " + parentSezon.epList.length.toString());
+      print("parentChange " + parentSezon.episodes.length.toString());
       print("bu nul mu");
     });
   }
@@ -67,6 +67,7 @@ class _DiziScreenState extends State<DiziScreen> {
               height: 250,
               child: SingleChildScrollView(
                 child: EpisodeListWidget(), // column() içinde
+                // child: Text("SingleChildScrollView  text"), // column() içinde
                 //Column(
                 //children:
                 // [
@@ -134,9 +135,9 @@ class _DiziScreenState extends State<DiziScreen> {
     //         // child:
     //         ListView.builder(
     //           // itemCount: 20,
-    //           itemCount: parentSezon == null ? 1 : parentSezon.epList.length,
+    //           itemCount: parentSezon == null ? 1 : parentSezon.episodes.length,
     //           itemBuilder: (BuildContext context, index) {
-    //             final list = parentSezon.epList;
+    //             final list = parentSezon.episodes;
     //             return ListTile(
     //               title: Text(parentSezon.sezonAdi == null
     //                   ? "bu listView boş"

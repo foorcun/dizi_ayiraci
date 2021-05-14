@@ -22,13 +22,13 @@ class Dizi {
   //     list[index].fotoLink, list[index].sezonSayisi)
 
   Dizi.withData(this.diziAdi, this.fotoLink, this.sezonSayisi, this.sezons,
-      List<Episode> epList) {
+      List<Episode> episodes) {
     // Dizi.withData(Map<String, dynamic> map) {
     //createSezon(this.sezonSayisi);
     int i = 0;
     sezons.forEach((sezon) {
       print("sezon" + sezon.sezonAdi);
-      // sezon.epList.add(list[i].epsList);
+      // sezon.episodes.add(list[i].epsList);
       i = i + 1;
       // addEpsList(list.epsList);
     });
@@ -45,10 +45,4 @@ class Dizi {
       j = j + 1;
     }
   }
-
-
-
-
-
-
 }

@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'episode.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable()
 class Episode {
   String episodeName;
 

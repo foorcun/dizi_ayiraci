@@ -181,17 +181,23 @@ const sahteString = '''[
               ]
   },
     {"diziAdi": "Dizi 2",
-  "fotoLink":"https://","sezonSayisi": 5,
+  "fotoLink":"https://","sezonSayisi": 8,
     "sezons": [
       {"sezonAdi": "1. sezon","episodes": [
                                             {"episodeName": "Dizi 2 sezon 1 bölüm 1"},
                                             {"episodeName": "Dizi 2 sezon 1 bölüm 2"},
-                                            {"episodeName": "Dizi 2 sezon 1 bölüm 3"}
+                                            {"episodeName": "Dizi 2 sezon 1 bölüm 3"},
+                                            {"episodeName": "Dizi 2 sezon 1 bölüm 4"},
+                                            {"episodeName": "Dizi 2 sezon 1 bölüm 5"},
+                                            {"episodeName": "Dizi 2 sezon 1 bölüm 6"}
                                           ]},
       {"sezonAdi": "2. sezon","episodes": [{"episodeName": "Dizi 2 sezon 2 bölüm 1"}]},
       {"sezonAdi": "3. sezon","episodes": [{"episodeName": "Dizi 2 sezon 3 bölüm 1"}]},
       {"sezonAdi": "4. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1"}]},
-      {"sezonAdi": "5. sezon","episodes": [{"episodeName": "Dizi 2 sezon 5 bölüm 1"}]}
+      {"sezonAdi": "5. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1"}]},
+      {"sezonAdi": "6. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1"}]},
+      {"sezonAdi": "7. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1"}]},
+      {"sezonAdi": "8. sezon","episodes": [{"episodeName": "Dizi 2 sezon 5 bölüm 1"}]}
               ]
   }
 ]''';

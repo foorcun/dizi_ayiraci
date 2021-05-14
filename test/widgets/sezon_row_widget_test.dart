@@ -9,7 +9,7 @@ void main() {
     //ARRANGE
     tiklananDiziBloc.startFakeData();
     //Dizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
-    print(tiklananDiziBloc.getTiklananDizi().diziAdi);
+    print(tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
     final widgetSss = find.text("bende columnun parçasıyım");
     final widgetSezon = find.text("1. sezon");
 

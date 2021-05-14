@@ -1,3 +1,4 @@
+import 'package:dizi_ayiraci/blocs/dizi_bloc.dart';
 import 'package:dizi_ayiraci/data/dizi_service_abstract.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
@@ -43,5 +44,9 @@ class TiklananDiziService extends DiziServiceAbstract {
 
   TiklananDizi getTiklananDizi() {
     return tiklananDizi;
+  }
+
+  Dizi findByDiziName(String diziName) {
+    return null;
   }
 }

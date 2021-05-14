@@ -14,7 +14,11 @@ void main() {
 
     tiklananDiziBloc.startFakeData();
 
-    print("test " + tiklananDiziBloc.getTiklananDizi().diziAdi);
+    print("test " + tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
+
+//ARRANGE
+    final listitem1 = find.text("Attack on Titan sezon 1 bölüm 1");
+    final sezsay = find.text("_EpisodeListWidgetState");
 
     //ASSEMBLE
     await tester.pumpWidget(
@@ -25,12 +29,9 @@ void main() {
 
     //ACT
     await tester.pump();
-//ARRANGE
-    final listitem1 = find.text("Attack on Titan sezon 1 bölüm 1");
-    final sezsay = find.text("_EpisodeListWidgetState");
 
     //ASSERT
     // expect(anketIsim, findsNothing);
-    expect(sezsay, findsOneWidget);
+    expect(listitem1, findsOneWidget);
   });
 }

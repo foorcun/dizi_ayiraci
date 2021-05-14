@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:dizi_ayiraci/blocs/dizi_bloc.dart';
 import 'package:dizi_ayiraci/data/in_memory_data/tiklanan_dizi_service.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
-
 
 class TiklananDiziBloc {
   final diziStreamController = StreamController.broadcast();
@@ -23,9 +23,9 @@ class TiklananDiziBloc {
     TiklananDiziService().startFakeData();
   }
 
-  setTiklananDizi(Dizi dizi) {
-    print("setTiklananDizi: " + dizi.diziAdi);
-    TiklananDiziService().setTiklananDizi(dizi);
+  setTiklananDizi(String diziName) {
+    print("setTiklananDizi: " + diziName);
+    TiklananDiziService().setTiklananDizi(diziBloc.findByDiziName(diziName));
   }
 
   TiklananDizi getTiklananDizi() {

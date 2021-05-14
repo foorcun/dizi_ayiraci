@@ -117,11 +117,11 @@
 //   //       // ),
 //   //       ListView.builder(
 //   //         itemCount: 2,
-//   //         // itemCount: selectedSezon.epList.length,
+//   //         // itemCount: selectedSezon.episodes.length,
 //   //         // shrinkWrap: true,
 //   //         // physics: ClampingScrollPhysics(),
 //   //         itemBuilder: (BuildContext context, index) {
-//   //           // final list = selectedSezon.epList;
+//   //           // final list = selectedSezon.episodes;
 //   //           return ListTile(
 //   //             // title: Text(list[index].episodeName),
 //   //             title: Text("selammmmmmmm"),

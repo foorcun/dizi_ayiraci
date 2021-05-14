@@ -15,7 +15,7 @@ class _SezonRowState extends State<SezonRow> {
 
   // void setClickedSezon(Sezon clickedSezon) {
   //   setState(() {
-  //     // print("baslangıc " + parentSezon.epList.length.toString());
+  //     // print("baslangıc " + parentSezon.episodes.length.toString());
 
   //     this.clickedSezon = clickedSezon;
   //   });
@@ -69,8 +69,10 @@ class _SezonRowState extends State<SezonRow> {
       // var clickedSezon = dizi.sezons[i];
       rowItem.add(InkWell(
         onTap: () {
-          tiklananDizi.sezonTiklanan = dizi.sezons[i];
           print("clickedSezon: " + dizi.sezons[i].sezonAdi);
+          setState(() {
+            tiklananDizi.sezonTiklanan = dizi.sezons[i];
+          });
         },
         child: Container(
             margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 5.0),

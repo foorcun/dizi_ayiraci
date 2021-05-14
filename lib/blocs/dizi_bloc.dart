@@ -19,6 +19,14 @@ class DiziBloc {
   void printAll() {
     seciliDiziService.printAll();
   }
+
+  Dizi findByDiziName(String diziName) {
+    return seciliDiziService.findByDiziName(diziName);
+  }
+
+  void startFakeData() {
+    seciliDiziService.startFakeData();
+  }
 }
 
 final diziBloc = DiziBloc();
