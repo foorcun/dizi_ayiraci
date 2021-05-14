@@ -7,126 +7,43 @@ import 'package:dizi_ayiraci/models/sezon.dart';
 import 'package:flutter/material.dart';
 
 class EpisodeListWidget extends StatefulWidget {
+  EpisodeListWidget();
+
   @override
   _EpisodeListWidgetState createState() => _EpisodeListWidgetState();
 }
 
 class _EpisodeListWidgetState extends State<EpisodeListWidget> {
-  TiklananDizi diziTiklanan;
   //Sezon parentSezon;
 
+//set state adım 1
+  List<Episode> diziTiklananEpisodes = [];
   @override
   Widget build(BuildContext context) {
-    diziTiklanan = tiklananDiziBloc.getTiklananDizi();
+    //diziTiklanan = tiklananDiziBloc.getTiklananDizi();
     print("_EpisodeListWidgetState " +
         tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
+    // sez = diziTiklanan.sezonTiklanan;
+    print("Sezon sez;" +
+        tiklananDiziBloc.getTiklananDizi().sezonTiklanan.sezonAdi);
 
-    // List<Dizi> diziList = diziBloc.getAll();
+    getListOfEpisodes();
 
-    // print("dizi list");
-    // // print(anketItems[0]);
-    // // dbService.printAll();
-    // diziBloc.printAll();
-
-    // return Expanded(
-    //   child: ListView.builder(
-    //       // itemCount: getListOfSezons(diziTiklanan).length,
-    //       itemCount: 5,
-    //       physics: BouncingScrollPhysics(),
-    //       itemBuilder: (BuildContext context, index) {
-    //         List<Sezon> list = getListOfSezons(diziTiklanan);
-    //         return ListTile(
-    //           title: Text(list[index].sezonAdi),
-    //         );
-    //       }),
-    // );
-
-    //return Column(
-    // children: getListOfSezons(diziTiklanan),
-
-    // children: List.generate(10, (index) {
-    //children: getListOfSezons(diziTiklanan),
-    // children: List.generate(diziTiklanan.diziTiklanan.sezons.length, (index) {
-    //return Text("_EpisodeListWidgetState");
-    //  return getListOfSezons(diziTiklanan.diziTiklanan);
-    // }),
-    // [
-    // LimitedBox(
-    //     maxHeight: 200,
-    //     child: Container(child: Text("_EpisodeListWidgetState"))),
-    // LimitedBox(maxHeight: 200, child: Container(child: Text("sushi"))),
-    // LimitedBox(
-    //     maxHeight: 200,
-    //     child: Container(child: Text("_EpisodeListWidgetState"))),
-    // LimitedBox(maxHeight: 200, child: Container(child: Text("sushi"))),
-    // LimitedBox(
-    //     maxHeight: 200,
-    //     child: Container(child: Text("_EpisodeListWidgetState"))),
-    // LimitedBox(maxHeight: 200, child: Container(child: Text("sushi"))),
-    // LimitedBox(
-    //     maxHeight: 200,
-    //     child: Container(child: Text("_EpisodeListWidgetState"))),
-    // LimitedBox(maxHeight: 200, child: Container(child: Text("sushi"))),
-    // LimitedBox(
-    //     maxHeight: 200,
-    //     child: Container(child: Text("_EpisodeListWidgetState"))),
-    // LimitedBox(maxHeight: 200, child: Container(child: Text("sushi"))),
-    // LimitedBox(
-    //     maxHeight: 200,
-    //     child: Container(child: Text("_EpisodeListWidgetState"))),
-    // LimitedBox(maxHeight: 200, child: Container(child: Text("sushi"))),
-    // ],
-    // );
     return Column(
-      // children: getListOfSezons(diziTiklanan),
-      children: getListOfSezons(diziTiklanan),
-      //  [
-      //   Text("sushi"),
-      //   Text("sushi"),
-      // Text(diziTiklanan.diziTiklanan.sezons[0].sezonAdi),
-
-      //   SizedBox(
-      //     height: 100,
-      //   ),
-      //   Text("asdf"),
-      //   SizedBox(
-      //     height: 100,
-      //   ),
-      //   Text("fdsa"),
-      //   SizedBox(
-      //     height: 100,
-      //   ),
-      //   Text("wer"),
-      //   SizedBox(
-      //     height: 100,
-      //   ),
-      //   Text("wer"),
-      //   SizedBox(
-      //     height: 100,
-      //   ),
-      //   Text("wer"),
-      //   SizedBox(
-      //     height: 100,
-      //   ),
-      //   Text("wer"),
+      children: getListOfEpisodes(),
+      // children: [
+      //   Text(diziTiklananEpisodes[0].episodeName),
       // ],
     );
   }
 
-  getListOfSezons(TiklananDizi diziTiklanan) {
-    List<Widget> diziTiklananSezonsWidgets = [];
-    // diziTiklananSezonsWidgets.add(Text(diziTiklanan.diziAdi));
-    // diziTiklananSezonsWidgets.add(Text("_EpisodeListWidgetState"));
-    // print("getListOfSezons " + diziTiklanan.diziAdi);
-
-    diziTiklananSezonsWidgets.add(Text("getListOfSezons( içi"));
-    // diziTiklananSezonsWidgets.add(Text(diziTiklanan.sezonSayisi.toString()));
-    // print("getListOfSezons " + diziTiklanan.sezonSayisi.toString());
+  getListOfEpisodes() {
+    List<Widget> diziTiklananEpisodesWidgets = [];
 
     print("diziTiklanan.diziTiklanan.diziAdi " +
-        diziTiklanan.diziTiklanan.diziAdi);
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
     print("diziTiklanan.sezonTiklanan.sezonAdi " +
-        diziTiklanan.sezonTiklanan.sezonAdi);
+        tiklananDiziBloc.getTiklananDizi().sezonTiklanan.sezonAdi);
 
     print("0");
 
@@ -134,8 +51,17 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
       print("a");
 
       print("diziTiklanan.sezonTiklanan.episodes.length " +
-          diziTiklanan.sezonTiklanan.episodes.length.toString());
-      diziTiklanan.sezonTiklanan.episodes.forEach((episode) {
+          tiklananDiziBloc
+              .getTiklananDizi()
+              .sezonTiklanan
+              .episodes
+              .length
+              .toString());
+      tiklananDiziBloc
+          .getTiklananDizi()
+          .sezonTiklanan
+          .episodes
+          .forEach((episode) {
         print("b");
 
         // diziTiklananSezonsWidgets.add(Text(episode.episodeName));
@@ -144,7 +70,11 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
 
           // print(Text(episode.episodeName));
           print("episode.episodeName " + episode.episodeName);
-          diziTiklananSezonsWidgets.add(Text(episode.episodeName));
+          diziTiklananEpisodesWidgets.add(Text(episode.episodeName));
+
+          setState(() {
+            diziTiklananEpisodes.add(episode);
+          });
         } catch (e) {
           print("olmadı");
         }
@@ -171,6 +101,7 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
     // sezon.episodes.forEach((element) {
     //   diziTiklananSezonsWidgets.add(Text(element.episodeName));
     // });
-    return diziTiklananSezonsWidgets;
+
+    return diziTiklananEpisodesWidgets;
   }
 }

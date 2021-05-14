@@ -31,6 +31,15 @@ class TiklananDiziBloc {
   TiklananDizi getTiklananDizi() {
     return TiklananDiziService().getTiklananDizi();
   }
+
+  // setTiklananSezon(int sezonKacinci) {
+  //   print("setTiklananSezon: " + sezonKacinci.toString());
+  //   TiklananDiziService().setTiklananDizi(diziBloc.findByDiziName(diziName));
+  // }
+
+  // TiklananDizi getTiklananSezon() {
+  //   return TiklananDiziService().getTiklananDizi();
+  // }
 }
 
 final tiklananDiziBloc = TiklananDiziBloc();

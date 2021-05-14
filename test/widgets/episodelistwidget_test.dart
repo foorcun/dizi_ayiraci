@@ -23,7 +23,9 @@ void main() {
     //ASSEMBLE
     await tester.pumpWidget(
       MaterialApp(
-        home: Scaffold(body: EpisodeListWidget()),
+        home: Scaffold(
+            body: EpisodeListWidget(
+                tiklananDiziBloc.getTiklananDizi().sezonTiklanan)),
       ),
     );
 

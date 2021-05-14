@@ -15,6 +15,18 @@ class DiziScreen extends StatefulWidget {
 }
 
 class _DiziScreenState extends State<DiziScreen> {
+  int _counter = 0;
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
+    });
+  }
+
   // Sezon parentSezon = Sezon('benden. sezon', episodeBloc.getAll());
   Sezon parentSezon;
 
@@ -28,22 +40,43 @@ class _DiziScreenState extends State<DiziScreen> {
     });
   }
 
+  void sezonTikla(Sezon sez) {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      tiklananDiziBloc.getTiklananDizi().sezonTiklanan = sez;
+    });
+  }
+
+  @override
+  void initState() {
+    //Sezon sezonTiklanan = diziTiklanan.diziTiklanan.sezons[0];
+    tiklananDiziBloc.getTiklananDizi().sezonTiklanan =
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan.sezons[0];
+  }
+
   @override
   Widget build(BuildContext context) {
     //final ScreenArguments args =
+    TiklananDizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
 
     // final Dizi diziTiklanan =
     //     ModalRoute.of(context).settings.arguments as Dizi; // tıklanan dizi
-    TiklananDizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
+    // Sezon sezonTiklanan;
 
-    // @override
-    // void initState() {
-    //   super.initState();
-    //   _sezonController.addListener();
-    // }
+    //Sezon sezonTiklanan = diziTiklanan.diziTiklanan.sezons[0];
+//tiklananDiziBloc.getTiklananDizi().sezonTiklanan
     return Scaffold(
       appBar: AppBar(
         title: Text(diziTiklanan.diziTiklanan.diziAdi),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
       ),
       body: SafeArea(
         child: Column(
@@ -53,10 +86,21 @@ class _DiziScreenState extends State<DiziScreen> {
               padding: EdgeInsets.all(25.0),
               child: Column(
                 children: [
+                  // Text(tiklananDiziBloc
+                  //     .getTiklananDizi()
+                  //     .sezonTiklanan
+                  //     .sezonAdi),
                   Text("conteinerim"),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: SezonRow(),
+                    child: Column(
+                      children: [
+                        // Text('$_counter'),
+                        // Text(diziTiklanan
+                        //     .diziTiklanan.sezons[_counter].sezonAdi),
+                        SezonRow(sezonTikla),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -67,29 +111,6 @@ class _DiziScreenState extends State<DiziScreen> {
               height: 250,
               child: SingleChildScrollView(
                 child: EpisodeListWidget(), // column() içinde
-                // child: Text("SingleChildScrollView  text"), // column() içinde
-                //Column(
-                //children:
-                // [
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                //   Text("Column text"),
-                // ],
-                //),
               ),
             ),
             // Text("1. Sezon"),

@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
 
 class SezonRow extends StatefulWidget {
+  final sezonTikla;
+  SezonRow(this.sezonTikla);
   @override
   _SezonRowState createState() => _SezonRowState();
 }
@@ -22,14 +24,15 @@ class _SezonRowState extends State<SezonRow> {
   //   // return this.clickedSezon;
   // }
 
-  TiklananDizi tiklananDizi;
+  // TiklananDizi tiklananDizi;
   @override
   Widget build(BuildContext context) {
     // tiklananDiziBloc.startFakeData();
-    tiklananDizi = tiklananDiziBloc.getTiklananDizi();
+    //tiklananDizi = tiklananDiziBloc.getTiklananDizi();
 
-    Dizi dizi = tiklananDizi.diziTiklanan;
-    print("build dizi " + dizi.diziAdi);
+    //Dizi dizi = tiklananDiziBloc.getTiklananDizi().diziTiklanan;
+    print("build dizi " +
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
 
     // if (dizi.sezons[0].sezonAdi == null) {
     //   print("dizi.sezons[0].sezonAdi null");
@@ -37,14 +40,22 @@ class _SezonRowState extends State<SezonRow> {
     //   print("dizi.sezons[0].sezonAdi " + dizi.sezons[0].sezonAdi);
     // }
 
-    print("dizisezonSayisi.length: " + dizi.sezonSayisi.toString());
-    print("dizisezons.length: " + dizi.sezons.length.toString());
+    print("dizisezonSayisi.length: " +
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan.sezonSayisi.toString());
+    print("dizisezons.length: " +
+        tiklananDiziBloc
+            .getTiklananDizi()
+            .diziTiklanan
+            .sezons
+            .length
+            .toString());
 
-    List<Widget> list = sezonRowItem(dizi);
+    List<Widget> list =
+        sezonRowItem(tiklananDiziBloc.getTiklananDizi().diziTiklanan);
     print("list.length: " + list.length.toString());
 
     return Row(
-      children: sezonRowItem(dizi),
+      children: sezonRowItem(tiklananDiziBloc.getTiklananDizi().diziTiklanan),
       // [
       // Column(
       //   children: [
@@ -63,6 +74,9 @@ class _SezonRowState extends State<SezonRow> {
   }
 
   List<Widget> sezonRowItem(Dizi dizi) {
+    // final void sezonTikla;
+    // Dizi dizi;
+    // sezonRowItem(this.dizi, this.sezonTikla);
     List<Widget> rowItem = [];
 
     for (var i = 0; i < dizi.sezons.length; i++) {
@@ -70,9 +84,8 @@ class _SezonRowState extends State<SezonRow> {
       rowItem.add(InkWell(
         onTap: () {
           print("clickedSezon: " + dizi.sezons[i].sezonAdi);
-          setState(() {
-            tiklananDizi.sezonTiklanan = dizi.sezons[i];
-          });
+          tiklananDiziBloc.getTiklananDizi().sezonTiklanan = dizi.sezons[i];
+          widget.sezonTikla(dizi.sezons[i]);
         },
         child: Container(
             margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 5.0),

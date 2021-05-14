@@ -2,6 +2,7 @@ import 'package:dizi_ayiraci/blocs/dizi_bloc.dart';
 import 'package:dizi_ayiraci/data/dizi_service_abstract.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
+import 'package:dizi_ayiraci/models/sezon.dart';
 
 class TiklananDiziService extends DiziServiceAbstract {
   // static List<Dizi> dizis = new List<Dizi>();
@@ -44,6 +45,15 @@ class TiklananDiziService extends DiziServiceAbstract {
 
   TiklananDizi getTiklananDizi() {
     return tiklananDizi;
+  }
+
+  setTiklananSezon(Sezon sezon) {
+    // tiklananDizi.diziTiklanan = null;
+    tiklananDizi.sezonTiklanan = sezon;
+  }
+
+  Sezon getTiklananSezon() {
+    return tiklananDizi.sezonTiklanan;
   }
 
   Dizi findByDiziName(String diziName) {
