@@ -1,10 +1,6 @@
 import 'package:dizi_ayiraci/data/episode_service.dart';
 import 'package:dizi_ayiraci/models/episode.dart';
-import 'package:json_annotation/json_annotation.dart';
 
-part 'sezon.g.dart';
-
-@JsonSerializable(explicitToJson: true)
 class Sezon {
   String sezonAdi;
 
@@ -12,11 +8,7 @@ class Sezon {
 
   Sezon.withName(this.sezonAdi);
 
-  Sezon(this.sezonAdi, this.episodes); //kısaca yazılmış constructor
-
-  factory Sezon.fromJson(Map<String, dynamic> data) => _$SezonFromJson(data);
-
-  Map<String, dynamic> toJson() => _$SezonToJson(this);
+  Sezon.withData(this.sezonAdi, this.episodes); //kısaca yazılmış constructor
 
   // static List<Sezon> getSezons() {
   //   return <Sezon>[

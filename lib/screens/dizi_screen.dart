@@ -1,7 +1,11 @@
 import 'package:dizi_ayiraci/blocs/episode_bloc.dart';
+import 'package:dizi_ayiraci/blocs/in_memory_blocs/tiklanan_dizi_bloc.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
+import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
 import 'package:dizi_ayiraci/models/sezon.dart';
 import 'package:dizi_ayiraci/widgets/dropdownSezon.dart';
+import 'package:dizi_ayiraci/widgets/episodelistwidget.dart';
+import 'package:dizi_ayiraci/widgets/sezon_row_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,93 +15,133 @@ class DiziScreen extends StatefulWidget {
 }
 
 class _DiziScreenState extends State<DiziScreen> {
+  int _counter = 0;
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
+    });
+  }
+
   // Sezon parentSezon = Sezon('benden. sezon', episodeBloc.getAll());
   Sezon parentSezon;
 
   void parentChange(Sezon newString) {
     setState(() {
-      // print("baslangıc " + parentSezon.epList.length.toString());
+      // print("baslangıc " + parentSezon.episodes.length.toString());
 
       parentSezon = newString;
-      print("parentChange " + parentSezon.epList.length.toString());
+      print("parentChange " + parentSezon.episodes.length.toString());
+      print("bu nul mu");
     });
+  }
+
+  void sezonTikla(Sezon sez) {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      tiklananDiziBloc.getTiklananDizi().sezonTiklanan = sez;
+    });
+  }
+
+  @override
+  void initState() {
+    //Sezon sezonTiklanan = diziTiklanan.diziTiklanan.sezons[0];
+    tiklananDiziBloc.getTiklananDizi().sezonTiklanan =
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan.sezons[0];
   }
 
   @override
   Widget build(BuildContext context) {
     //final ScreenArguments args =
+    TiklananDizi diziTiklanan = tiklananDiziBloc.getTiklananDizi();
 
-    final Dizi diziArgs = ModalRoute.of(context).settings.arguments as Dizi;
+    // final Dizi diziTiklanan =
+    //     ModalRoute.of(context).settings.arguments as Dizi; // tıklanan dizi
+    // Sezon sezonTiklanan;
 
-    // @override
-    // void initState() {
-    //   super.initState();
-    //   _sezonController.addListener();
-    // }
+    //Sezon sezonTiklanan = diziTiklanan.diziTiklanan.sezons[0];
+//tiklananDiziBloc.getTiklananDizi().sezonTiklanan
     return Scaffold(
       appBar: AppBar(
-        title: Text(diziArgs.diziAdi),
+        title: Text(diziTiklanan.diziTiklanan.diziAdi),
       ),
-      body: Column(
-        children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Text("sushi"),
-                SizedBox(
-                  width: 100,
-                ),
-                Text("asdf"),
-                SizedBox(
-                  width: 100,
-                ),
-                Text("fdsa"),
-                SizedBox(
-                  width: 100,
-                ),
-                Text("wer"),
-              ],
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.all(25.0),
+              padding: EdgeInsets.all(25.0),
+              child: Column(
+                children: [
+                  // Text(tiklananDiziBloc
+                  //     .getTiklananDizi()
+                  //     .sezonTiklanan
+                  //     .sezonAdi),
+                  Text("conteinerim"),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Column(
+                      children: [
+                        // Text('$_counter'),
+                        // Text(diziTiklanan
+                        //     .diziTiklanan.sezons[_counter].sezonAdi),
+                        SezonRow(sezonTikla),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              children: [
-                Text("sushi"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("asdf"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("fdsa"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("wer"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("wer"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("wer"),
-                SizedBox(
-                  height: 100,
-                ),
-                Text("wer"),
-              ],
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 5.0),
+              width: 250,
+              height: 250,
+              child: SingleChildScrollView(
+                child: EpisodeListWidget(), // column() içinde
+              ),
             ),
-          ),
-        ],
+            // Text("1. Sezon"),
+
+            //child: Text("diziTiklanan"),
+            // Row(
+            //   children: [
+            //     Text("sushi"),
+            //     SizedBox(
+            //       width: 100,
+            //     ),
+            //     Text("asdf"),
+            //     SizedBox(
+            //       width: 100,
+            //     ),
+            //     Text("fdsa"),
+            //     SizedBox(
+            //       width: 100,
+            //     ),
+            //     Text("wer"),
+            //   ],
+            // ),
+            // EpisodeListWidget(diziTiklanan), //// bunu episode list widget yapcaz
+          ],
+        ),
       ),
     );
 
     // return Scaffold(
     //     appBar: AppBar(
-    //       title: Text(diziArgs.diziAdi),
+    //       title: Text(diziTiklanan.diziAdi),
     //     ),
     //     body: Column(
     //       children: [
@@ -112,9 +156,9 @@ class _DiziScreenState extends State<DiziScreen> {
     //         // child:
     //         ListView.builder(
     //           // itemCount: 20,
-    //           itemCount: parentSezon == null ? 1 : parentSezon.epList.length,
+    //           itemCount: parentSezon == null ? 1 : parentSezon.episodes.length,
     //           itemBuilder: (BuildContext context, index) {
-    //             final list = parentSezon.epList;
+    //             final list = parentSezon.episodes;
     //             return ListTile(
     //               title: Text(parentSezon.sezonAdi == null
     //                   ? "bu listView boş"

@@ -1,17 +1,8 @@
-import 'package:json_annotation/json_annotation.dart';
-
-part 'episode.g.dart';
-
-@JsonSerializable()
 class Episode {
   String episodeName;
 
-  Episode(this.episodeName);
-
-  factory Episode.fromJson(Map<String, dynamic> data) =>
-      _$EpisodeFromJson(data);
-
-  Map<String, dynamic> toJson() => _$EpisodeToJson(this);
+  Episode();
+  Episode.withName(this.episodeName);
 
   // List<Episode> getEps() {
   //   return <Episode>[
