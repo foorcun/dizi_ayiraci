@@ -57,6 +57,8 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
               .episodes
               .length
               .toString());
+
+      int i = 0;
       tiklananDiziBloc
           .getTiklananDizi()
           .sezonTiklanan
@@ -70,7 +72,15 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
 
           // print(Text(episode.episodeName));
           print("episode.episodeName " + episode.episodeName);
-          diziTiklananEpisodesWidgets.add(Text(episode.episodeName));
+          diziTiklananEpisodesWidgets.add(TextEpisode(i)
+              //   Text(
+              //   episode.episodeName,
+              //   style: TextStyle(
+              //     backgroundColor:
+              //         (episode.isWatched == true) ? Colors.green : Colors.red,
+              //   ),
+              // )
+              );
 
           setState(() {
             diziTiklananEpisodes.add(episode);
@@ -78,6 +88,8 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
         } catch (e) {
           print("olmadı");
         }
+
+        i = i + 1;
       });
     } catch (e) {
       print("hiç olmadı");
@@ -103,5 +115,71 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
     // });
 
     return diziTiklananEpisodesWidgets;
+  }
+}
+
+class TextEpisode extends StatefulWidget {
+  int episodeNo;
+  TextEpisode(this.episodeNo);
+  @override
+  _TextEpisodeState createState() => _TextEpisodeState();
+}
+
+class _TextEpisodeState extends State<TextEpisode> {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          if (tiklananDiziBloc
+                  .getTiklananDizi()
+                  .sezonTiklanan
+                  .episodes[widget.episodeNo]
+                  .isWatched ==
+              true) {
+            tiklananDiziBloc
+                .getTiklananDizi()
+                .sezonTiklanan
+                .episodes[widget.episodeNo]
+                .isWatched = false;
+          } else {
+            tiklananDiziBloc
+                .getTiklananDizi()
+                .sezonTiklanan
+                .episodes[widget.episodeNo]
+                .isWatched = true;
+          }
+        });
+      },
+      child: Container(
+        margin: EdgeInsets.all(25.0),
+        padding: EdgeInsets.all(40.0),
+        child: Text(
+          tiklananDiziBloc
+                  .getTiklananDizi()
+                  .sezonTiklanan
+                  .episodes[widget.episodeNo]
+                  .episodeName +
+              " : " +
+              tiklananDiziBloc
+                  .getTiklananDizi()
+                  .sezonTiklanan
+                  .episodes[widget.episodeNo]
+                  .isWatched
+                  .toString(),
+          style: TextStyle(
+            color: Colors.white,
+            backgroundColor: (tiklananDiziBloc
+                        .getTiklananDizi()
+                        .sezonTiklanan
+                        .episodes[widget.episodeNo]
+                        .isWatched ==
+                    true)
+                ? Colors.lightGreenAccent[400]
+                : Colors.red,
+          ),
+        ),
+      ),
+    );
   }
 }
