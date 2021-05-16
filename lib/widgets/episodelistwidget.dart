@@ -30,6 +30,7 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
     getListOfEpisodes();
 
     return Column(
+      // crossAxisAlignment: CrossAxisAlignment.stretch,
       children: getListOfEpisodes(),
       // children: [
       //   Text(diziTiklananEpisodes[0].episodeName),
@@ -152,8 +153,8 @@ class _TextEpisodeState extends State<TextEpisode> {
         });
       },
       child: Container(
-        margin: EdgeInsets.all(25.0),
-        padding: EdgeInsets.all(40.0),
+        margin: EdgeInsets.all(2.0),
+        padding: EdgeInsets.all(4.0),
         child: Text(
           tiklananDiziBloc
                   .getTiklananDizi()
