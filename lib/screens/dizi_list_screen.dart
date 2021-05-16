@@ -7,7 +7,7 @@ import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:flutter/material.dart';
 
 class DizisListScreen extends StatelessWidget {
-  Dizi secilenDizi; // 1. adım
+  // late Dizi secilenDizi; // 1. adım
 
   @override
   Widget build(BuildContext context) {
@@ -20,29 +20,29 @@ class DizisListScreen extends StatelessWidget {
               onPressed: () => Navigator.pushNamed(
                     context,
                     "/dizi",
-                    arguments: secilenDizi,
+                    // arguments: tiklananDiziBloc.getTiklananDizi().diziTiklanan,
                   ))
         ],
       ),
-      body: buildDiziList(this.secilenDizi),
+      body: buildDiziList(),
     );
   }
 
-  buildDiziList(Dizi secilenDizi) {
+  buildDiziList() {
     return StreamBuilder(
       initialData: diziBloc.getAll(),
       stream: diziBloc.getStream,
       builder: (context, snapshot) {
-        return snapshot.data.length > 0
-            ? buildDiziListItems(snapshot, secilenDizi)
-            : Center(child: Text("data yok"));
+        return buildDiziListItems(snapshot);
+        // ? buildDiziListItems(snapshot, secilenDizi)
+        // : Center(child: Text("data yok"));;
       },
     );
   }
 
-  buildDiziListItems(AsyncSnapshot snapshot, Dizi secilenDizi) {
-    Dizi _secilenDizi;
-    _secilenDizi = secilenDizi;
+  buildDiziListItems(AsyncSnapshot snapshot) {
+    // Dizi _secilenDizi;
+    // _secilenDizi = secilenDizi;
     return ListView.builder(
       itemCount: snapshot.data.length,
       //itemBuilder: null,
@@ -74,7 +74,7 @@ class DizisListScreen extends StatelessWidget {
             print("suna tıklandı.");
             print(list[index].diziAdi);
             print("tiklananDiziBloc.setTiklananDizi( de diziAdi " +
-                tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
+                tiklananDiziBloc.getTiklananDizi().diziTiklanan!.diziAdi!);
           },
           trailing: IconButton(
             icon: Icon(Icons.add_shopping_cart),

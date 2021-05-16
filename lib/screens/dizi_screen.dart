@@ -28,14 +28,15 @@ class _DiziScreenState extends State<DiziScreen> {
   }
 
   // Sezon parentSezon = Sezon('benden. sezon', episodeBloc.getAll());
-  Sezon parentSezon;
+  late Sezon parentSezon;
 
   void parentChange(Sezon newString) {
     setState(() {
       // print("baslangıc " + parentSezon.episodes.length.toString());
 
       parentSezon = newString;
-      print("parentChange " + parentSezon.episodes.length.toString());
+      print("parentChange " + parentSezon.episodes!.length.toString());
+
       print("bu nul mu");
     });
   }
@@ -55,7 +56,7 @@ class _DiziScreenState extends State<DiziScreen> {
   void initState() {
     //Sezon sezonTiklanan = diziTiklanan.diziTiklanan.sezons[0];
     tiklananDiziBloc.getTiklananDizi().sezonTiklanan =
-        tiklananDiziBloc.getTiklananDizi().diziTiklanan.sezons[0];
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan!.sezons![0];
   }
 
   @override
@@ -71,7 +72,7 @@ class _DiziScreenState extends State<DiziScreen> {
 //tiklananDiziBloc.getTiklananDizi().sezonTiklanan
     return Scaffold(
       appBar: AppBar(
-        title: Text(diziTiklanan.diziTiklanan.diziAdi),
+        title: Text(diziTiklanan.diziTiklanan!.diziAdi),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

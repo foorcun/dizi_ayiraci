@@ -44,13 +44,13 @@ class DiziService extends DiziServiceAbstract {
           print("dizi diziAdi $i : " +
               dizi.diziAdi +
               " dizi fotoLink $i : " +
-              dizi.fotoLink +
+              dizi.fotoLink! +
               " dizi sezonSayisi $i : " +
               dizi.sezonSayisi.toString() +
               " dizi sezons sayısı length ile $i : " +
-              dizi.sezons.length.toString()),
+              dizi.sezons!.length.toString()),
           " dizi ilksezon episode sayısı length ile $i : " +
-              dizi.sezons[0].episodes.length.toString(),
+              dizi.sezons![0]!.episodes!.length.toString(),
           i = i + 1
         });
   }
@@ -66,35 +66,35 @@ class DiziService extends DiziServiceAbstract {
     dizis = data.map((data) => Dizi.fromJson(data)).toList();
   }
 
-  Dizi fromMap(Map<String, dynamic> mapItem) {
-    Dizi dizi = Dizi();
-    // assert(mapItem["diziAdi"] != null);
-    // assert(mapItem["fotoLink"] != null);
-    // assert(mapItem["sezonSayisi"] != null);
-    // assert(mapItem["sezons"] != null);
-    // assert(mapItem["sezons"] != null);
-    // dizi.diziAdi = mapItem["diziAdi"];
-    // dizi.fotoLink = mapItem["fotoLink"];
-    // dizi.sezonSayisi = mapItem["sezonSayisi"];
-    // dizi.sezons = this.sezonFromMap(mapItem["sezons"]);
+  // Dizi fromMap(Map<String, dynamic> mapItem) {
+  //   Dizi dizi = Dizi();
+  //   // assert(mapItem["diziAdi"] != null);
+  //   // assert(mapItem["fotoLink"] != null);
+  //   // assert(mapItem["sezonSayisi"] != null);
+  //   // assert(mapItem["sezons"] != null);
+  //   // assert(mapItem["sezons"] != null);
+  //   // dizi.diziAdi = mapItem["diziAdi"];
+  //   // dizi.fotoLink = mapItem["fotoLink"];
+  //   // dizi.sezonSayisi = mapItem["sezonSayisi"];
+  //   // dizi.sezons = this.sezonFromMap(mapItem["sezons"]);
 
-    // // this.episodeSeparator(mapItem["sezons"]);
-    // // // int j = 1;
-    // // // for (var i = 0; i < dizi.sezonSayisi; i++) {
-    // // //   dizi.sezons.add(Sezon.withName("$j. Sezon"));
-    // // //   j++;
-    // // // }
-    // print("fromMap " + dizi.sezons[0].episodes[0].episodeName);
-    // // int i = 0;
-    // // dizi.sezons.forEach((sezon) {
-    // //   print("sezon " + sezon.sezonAdi);
-    // //   sezon.episodes.add(list[i].epsList);
-    // //   i = i + 1;
-    // //   // addEpsList(list.epsList);
-    // // });
+  //   // // this.episodeSeparator(mapItem["sezons"]);
+  //   // // // int j = 1;
+  //   // // // for (var i = 0; i < dizi.sezonSayisi; i++) {
+  //   // // //   dizi.sezons.add(Sezon.withName("$j. Sezon"));
+  //   // // //   j++;
+  //   // // // }
+  //   // print("fromMap " + dizi.sezons[0].episodes[0].episodeName);
+  //   // // int i = 0;
+  //   // // dizi.sezons.forEach((sezon) {
+  //   // //   print("sezon " + sezon.sezonAdi);
+  //   // //   sezon.episodes.add(list[i].epsList);
+  //   // //   i = i + 1;
+  //   // //   // addEpsList(list.epsList);
+  //   // // });
 
-    return dizi;
-  }
+  //   return dizi;
+  // }
 
   List<Sezon> sezonFromMap(List<Map<String, dynamic>> mapItem) {
     List<Sezon> listSezon = [];
@@ -126,8 +126,9 @@ class DiziService extends DiziServiceAbstract {
     return listEpisode;
   }
 
-  Dizi findByDiziName(String diziName) {
-    Dizi _dizi;
+  Dizi? findByDiziName(String diziName) {
+    Dizi? _dizi;
+
     dizis.forEach((dizi) {
       // print("dizi.diziAdi " + dizi.diziAdi);
       if (dizi.diziAdi == diziName) {
@@ -135,7 +136,7 @@ class DiziService extends DiziServiceAbstract {
         _dizi = dizi;
       }
     });
-    print("_dizi adı " + _dizi.diziAdi);
+    print("_dizi adı " + _dizi!.diziAdi);
     return _dizi;
   }
 }

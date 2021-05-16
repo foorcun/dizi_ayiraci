@@ -4,7 +4,7 @@ import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/models/in_memory_models/tiklanan_dizi.dart';
 import 'package:dizi_ayiraci/models/sezon.dart';
 
-class TiklananDiziService extends DiziServiceAbstract {
+class TiklananDiziService {
   // static List<Dizi> dizis = new List<Dizi>();
   static TiklananDizi tiklananDizi = TiklananDizi();
   //static List<Product> products = <Product>[];
@@ -18,21 +18,18 @@ class TiklananDiziService extends DiziServiceAbstract {
 
   TiklananDiziService._internal();
 
-  @override
-  List<Dizi> getAll() {
-    // TODO: implement getAll
-    // throw UnimplementedError();
-    return null;
-  }
+  // List<Dizi> getAll() {
+  //   // TODO: implement getAll
+  //   // throw UnimplementedError();
+  //   return null;
+  // }
 
-  @override
   printAll() {
     // TODO: implement printAll
     // throw UnimplementedError();
     return null;
   }
 
-  @override
   startFakeData() {
     // TODO: implement startFakeData
     tiklananDizi.testDataStarter();
@@ -52,11 +49,11 @@ class TiklananDiziService extends DiziServiceAbstract {
     tiklananDizi.sezonTiklanan = sezon;
   }
 
-  Sezon getTiklananSezon() {
+  Sezon? getTiklananSezon() {
     return tiklananDizi.sezonTiklanan;
   }
 
-  Dizi findByDiziName(String diziName) {
+  Dizi? findByDiziName(String diziName) {
     return null;
   }
 }

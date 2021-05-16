@@ -6,9 +6,9 @@ part 'sezon.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Sezon {
-  String sezonAdi;
+  String? sezonAdi;
 
-  List<Episode> episodes = [];
+  List<Episode?>? episodes = [];
 
   Sezon.withName(this.sezonAdi);
 

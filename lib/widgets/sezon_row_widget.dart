@@ -32,7 +32,7 @@ class _SezonRowState extends State<SezonRow> {
 
     //Dizi dizi = tiklananDiziBloc.getTiklananDizi().diziTiklanan;
     print("build dizi " +
-        tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan!.diziAdi);
 
     // if (dizi.sezons[0].sezonAdi == null) {
     //   print("dizi.sezons[0].sezonAdi null");
@@ -41,21 +41,27 @@ class _SezonRowState extends State<SezonRow> {
     // }
 
     print("dizisezonSayisi.length: " +
-        tiklananDiziBloc.getTiklananDizi().diziTiklanan.sezonSayisi.toString());
+        tiklananDiziBloc
+            .getTiklananDizi()
+            .diziTiklanan!
+            .sezonSayisi
+            .toString());
     print("dizisezons.length: " +
         tiklananDiziBloc
             .getTiklananDizi()
-            .diziTiklanan
-            .sezons
+            .diziTiklanan!
+            .sezons!
             .length
             .toString());
 
     List<Widget> list =
-        sezonRowItem(tiklananDiziBloc.getTiklananDizi().diziTiklanan);
+        sezonRowItem(tiklananDiziBloc.getTiklananDizi().diziTiklanan!);
+
     print("list.length: " + list.length.toString());
 
     return Row(
-      children: sezonRowItem(tiklananDiziBloc.getTiklananDizi().diziTiklanan),
+      children: sezonRowItem(tiklananDiziBloc.getTiklananDizi().diziTiklanan!),
+
       // [
       // Column(
       //   children: [
@@ -79,17 +85,17 @@ class _SezonRowState extends State<SezonRow> {
     // sezonRowItem(this.dizi, this.sezonTikla);
     List<Widget> rowItem = [];
 
-    for (var i = 0; i < dizi.sezons.length; i++) {
+    for (var i = 0; i < dizi.sezons!.length; i++) {
       // var clickedSezon = dizi.sezons[i];
       rowItem.add(InkWell(
         onTap: () {
-          print("clickedSezon: " + dizi.sezons[i].sezonAdi);
-          tiklananDiziBloc.getTiklananDizi().sezonTiklanan = dizi.sezons[i];
-          widget.sezonTikla(dizi.sezons[i]);
+          print("clickedSezon: " + dizi.sezons![i]!.sezonAdi!);
+          tiklananDiziBloc.getTiklananDizi().sezonTiklanan = dizi.sezons![i];
+          widget.sezonTikla(dizi.sezons![i]);
         },
         child: Container(
             margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 5.0),
-            child: Text(dizi.sezons[i].sezonAdi)),
+            child: Text(dizi.sezons![i]!.sezonAdi!)),
       )
           // rowItem.add(SizedBox(
           //   width: 100,
