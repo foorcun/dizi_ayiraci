@@ -22,10 +22,11 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
   Widget build(BuildContext context) {
     //diziTiklanan = tiklananDiziBloc.getTiklananDizi();
     print("_EpisodeListWidgetState " +
-        tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan!.diziAdi);
+
     // sez = diziTiklanan.sezonTiklanan;
     print("Sezon sez;" +
-        tiklananDiziBloc.getTiklananDizi().sezonTiklanan.sezonAdi);
+        tiklananDiziBloc.getTiklananDizi().sezonTiklanan!.sezonAdi!);
 
     getListOfEpisodes();
 
@@ -42,9 +43,10 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
     List<Widget> diziTiklananEpisodesWidgets = [];
 
     print("diziTiklanan.diziTiklanan.diziAdi " +
-        tiklananDiziBloc.getTiklananDizi().diziTiklanan.diziAdi);
+        tiklananDiziBloc.getTiklananDizi().diziTiklanan!.diziAdi);
+
     print("diziTiklanan.sezonTiklanan.sezonAdi " +
-        tiklananDiziBloc.getTiklananDizi().sezonTiklanan.sezonAdi);
+        tiklananDiziBloc.getTiklananDizi().sezonTiklanan!.sezonAdi!);
 
     print("0");
 
@@ -54,16 +56,16 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
       print("diziTiklanan.sezonTiklanan.episodes.length " +
           tiklananDiziBloc
               .getTiklananDizi()
-              .sezonTiklanan
-              .episodes
+              .sezonTiklanan!
+              .episodes!
               .length
               .toString());
 
       int i = 0;
       tiklananDiziBloc
           .getTiklananDizi()
-          .sezonTiklanan
-          .episodes
+          .sezonTiklanan!
+          .episodes!
           .forEach((episode) {
         print("b");
 
@@ -72,7 +74,8 @@ class _EpisodeListWidgetState extends State<EpisodeListWidget> {
           print("c");
 
           // print(Text(episode.episodeName));
-          print("episode.episodeName " + episode.episodeName);
+          print("episode.episodeName " + episode!.episodeName!);
+
           diziTiklananEpisodesWidgets.add(TextEpisode(i)
               //   Text(
               //   episode.episodeName,
@@ -134,20 +137,20 @@ class _TextEpisodeState extends State<TextEpisode> {
         setState(() {
           if (tiklananDiziBloc
                   .getTiklananDizi()
-                  .sezonTiklanan
-                  .episodes[widget.episodeNo]
+                  .sezonTiklanan!
+                  .episodes![widget.episodeNo]!
                   .isWatched ==
               true) {
             tiklananDiziBloc
                 .getTiklananDizi()
-                .sezonTiklanan
-                .episodes[widget.episodeNo]
+                .sezonTiklanan!
+                .episodes![widget.episodeNo]!
                 .isWatched = false;
           } else {
             tiklananDiziBloc
                 .getTiklananDizi()
-                .sezonTiklanan
-                .episodes[widget.episodeNo]
+                .sezonTiklanan!
+                .episodes![widget.episodeNo]!
                 .isWatched = true;
           }
         });
@@ -158,22 +161,22 @@ class _TextEpisodeState extends State<TextEpisode> {
         child: Text(
           tiklananDiziBloc
                   .getTiklananDizi()
-                  .sezonTiklanan
-                  .episodes[widget.episodeNo]
-                  .episodeName +
+                  .sezonTiklanan!
+                  .episodes![widget.episodeNo]!
+                  .episodeName! +
               " : " +
               tiklananDiziBloc
                   .getTiklananDizi()
-                  .sezonTiklanan
-                  .episodes[widget.episodeNo]
+                  .sezonTiklanan!
+                  .episodes![widget.episodeNo]!
                   .isWatched
                   .toString(),
           style: TextStyle(
             color: Colors.white,
             backgroundColor: (tiklananDiziBloc
                         .getTiklananDizi()
-                        .sezonTiklanan
-                        .episodes[widget.episodeNo]
+                        .sezonTiklanan!
+                        .episodes![widget.episodeNo]!
                         .isWatched ==
                     true)
                 ? Colors.lightGreenAccent[400]

@@ -5,11 +5,16 @@ part 'dizi.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Dizi {
-  String diziAdi, fotoLink;
-  int sezonSayisi;
-  List<Sezon> sezons = [];
+  String diziAdi;
+  String? fotoLink;
+  int? sezonSayisi;
+  List<Sezon?>? sezons = [];
 
-  Dizi({this.diziAdi, this.fotoLink, this.sezonSayisi, this.sezons});
+  Dizi(
+      {required this.diziAdi,
+      this.fotoLink,
+      this.sezonSayisi,
+      required this.sezons});
 
   Dizi.withName(this.diziAdi);
 

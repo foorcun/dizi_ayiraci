@@ -20,7 +20,7 @@ class DiziBloc {
     seciliDiziService.printAll();
   }
 
-  Dizi findByDiziName(String diziName) {
+  Dizi? findByDiziName(String diziName) {
     return seciliDiziService.findByDiziName(diziName);
   }
 

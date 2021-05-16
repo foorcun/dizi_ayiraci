@@ -25,7 +25,7 @@ class TiklananDiziBloc {
 
   setTiklananDizi(String diziName) {
     print("setTiklananDizi: " + diziName);
-    TiklananDiziService().setTiklananDizi(diziBloc.findByDiziName(diziName));
+    TiklananDiziService().setTiklananDizi(diziBloc.findByDiziName(diziName)!);
   }
 
   TiklananDizi getTiklananDizi() {

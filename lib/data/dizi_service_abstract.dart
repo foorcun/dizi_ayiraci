@@ -5,5 +5,5 @@ abstract class DiziServiceAbstract {
   printAll();
   startFakeData();
 
-  Dizi findByDiziName(String diziName);
+  Dizi? findByDiziName(String diziName);
 }

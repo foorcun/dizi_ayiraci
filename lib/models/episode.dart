@@ -4,7 +4,7 @@ part 'episode.g.dart';
 
 @JsonSerializable()
 class Episode {
-  String episodeName;
+  String? episodeName;
 
   bool isWatched;
 
