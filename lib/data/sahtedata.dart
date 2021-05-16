@@ -170,34 +170,74 @@ const sahteString = '''[
   "fotoLink":"https://upload.wikimedia.org/wikipedia/en/d/d6/Shingeki_no_Kyojin_manga_volume_1.jpg","sezonSayisi": 4,
     "sezons": [
       {"sezonAdi": "1. sezon","episodes": [
-                                            {"episodeName": "Attack on Titan sezon 1 bölüm 1"},
-                                            {"episodeName": "Attack on Titan sezon 1 bölüm 2"},
-                                            {"episodeName": "Attack on Titan sezon 1 bölüm 3"}
+                                            {"episodeName": "Attack on Titan sezon 1 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Attack on Titan sezon 1 bölüm 2",
+                                            "isWatched": true},
+                                             {"episodeName": "Attack on Titan sezon 1 bölüm 3",
+                                            "isWatched": false},
+                                            {"episodeName": "Attack on Titan sezon 1 bölüm 4",
+                                            "isWatched": true},
+                                             {"episodeName": "Attack on Titan sezon 1 bölüm 5",
+                                            "isWatched": false},
+                                            {"episodeName": "Attack on Titan sezon 1 bölüm 6",
+                                            "isWatched": true}
+                                            
                                           ]},
-      {"sezonAdi": "2. sezon","episodes": [{"episodeName": "Attack on Titan sezon 2 bölüm 1"}]},
-      {"sezonAdi": "3. sezon","episodes": [{"episodeName": "Attack on Titan sezon 3 bölüm 1"}]},
-      {"sezonAdi": "4. sezon","episodes": [{"episodeName": "Attack on Titan sezon 4 bölüm 1"}]},
-      {"sezonAdi": "5. sezon","episodes": [{"episodeName": "Attack on Titan sezon 5 bölüm 1"}]}
+      {"sezonAdi": "2. sezon","episodes": [ {"episodeName": "Attack on Titan sezon 2 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Attack on Titan sezon 2 bölüm 2",
+                                            "isWatched": true}]},
+      {"sezonAdi": "3. sezon","episodes": [ {"episodeName": "Attack on Titan sezon 3 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Attack on Titan sezon 3 bölüm 2",
+                                            "isWatched": true}]},
+      {"sezonAdi": "4. sezon","episodes": [ {"episodeName": "Attack on Titan sezon 4 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Attack on Titan sezon 4 bölüm 2",
+                                            "isWatched": true}]},
+      {"sezonAdi": "5. sezon","episodes": [{"episodeName": "Attack on Titan sezon 5 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Attack on Titan sezon 5 bölüm 2",
+                                            "isWatched": true}]}
               ]
   },
     {"diziAdi": "Dizi 2",
   "fotoLink":"https://","sezonSayisi": 8,
     "sezons": [
       {"sezonAdi": "1. sezon","episodes": [
-                                            {"episodeName": "Dizi 2 sezon 1 bölüm 1"},
-                                            {"episodeName": "Dizi 2 sezon 1 bölüm 2"},
-                                            {"episodeName": "Dizi 2 sezon 1 bölüm 3"},
-                                            {"episodeName": "Dizi 2 sezon 1 bölüm 4"},
-                                            {"episodeName": "Dizi 2 sezon 1 bölüm 5"},
-                                            {"episodeName": "Dizi 2 sezon 1 bölüm 6"}
-                                          ]},
-      {"sezonAdi": "2. sezon","episodes": [{"episodeName": "Dizi 2 sezon 2 bölüm 1"}]},
-      {"sezonAdi": "3. sezon","episodes": [{"episodeName": "Dizi 2 sezon 3 bölüm 1"}]},
-      {"sezonAdi": "4. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1"}]},
-      {"sezonAdi": "5. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1"}]},
-      {"sezonAdi": "6. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1"}]},
-      {"sezonAdi": "7. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1"}]},
-      {"sezonAdi": "8. sezon","episodes": [{"episodeName": "Dizi 2 sezon 5 bölüm 1"}]}
+                                           
+                                            {"episodeName": "Dizi 2 sezon 1 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Dizi 2 sezon 1 bölüm 2",
+                                            "isWatched": true},
+                                             {"episodeName": "Dizi 2 sezon 1 bölüm 3",
+                                            "isWatched": false},
+                                            {"episodeName": "Dizi 2 sezon 1 bölüm 4",
+                                            "isWatched": true},
+                                             {"episodeName": "Dizi 2 sezon 1 bölüm 5",
+                                            "isWatched": false}]},
+      {"sezonAdi": "2. sezon","episodes": [{"episodeName": "Dizi 2 sezon 2 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Dizi 2 sezon 2 bölüm 2",
+                                            "isWatched": true}]},
+      {"sezonAdi": "3. sezon","episodes": [{"episodeName": "Dizi 2 sezon 3 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Dizi 2 sezon 3 bölüm 2",
+                                            "isWatched": true}]},
+      {"sezonAdi": "4. sezon","episodes": [{"episodeName": "Dizi 2 sezon 4 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Dizi 2 sezon 4 bölüm 2",
+                                            "isWatched": true}]},
+      {"sezonAdi": "5. sezon","episodes": [{"episodeName": "Dizi 2 sezon 5 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Dizi 2 sezon 5 bölüm 2",
+                                            "isWatched": true}]},
+      {"sezonAdi": "6. sezon","episodes": [{"episodeName": "Dizi 2 sezon 6 bölüm 1",
+                                            "isWatched": false},
+                                            {"episodeName": "Dizi 2 sezon 6 bölüm 2",
+                                            "isWatched": true}]}
+   
               ]
   }
 ]''';

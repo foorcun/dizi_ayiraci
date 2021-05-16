@@ -46,7 +46,21 @@ void main() {
     //fakeService.printAll();
     Dizi dizi = fakeService.findByDiziName("Attack on Titan");
     expect(dizi.diziAdi, "Attack on Titan");
-    expect(dizi.sezons[0].episodes[0].episodeName.toString(), "Attack on Titan sezon 1 bölüm 1");
+    expect(dizi.sezons[0].episodes[0].episodeName.toString(),
+        "Attack on Titan sezon 1 bölüm 1");
     // expect(2, 2);
+  });
+
+  test('anket isWatched ...', () async {
+    // TODO: Implement test
+    //
+    var fakeService = DiziService();
+    fakeService.startFakeData();
+
+    expect(fakeService.getAll()[0].sezons[0].episodes[0].isWatched, false);
+    expect(fakeService.getAll()[0].sezons[0].episodes[1].isWatched, true);
+
+    // //
+    //
   });
 }

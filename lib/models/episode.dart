@@ -6,7 +6,9 @@ part 'episode.g.dart';
 class Episode {
   String episodeName;
 
-  Episode(this.episodeName);
+  bool isWatched;
+
+  Episode(this.episodeName, this.isWatched);
 
   factory Episode.fromJson(Map<String, dynamic> data) =>
       _$EpisodeFromJson(data);
