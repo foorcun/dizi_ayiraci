@@ -1,8 +1,8 @@
-import 'package:json_annotation/json_annotation.dart';
+// import 'package:json_annotation/json_annotation.dart';
 
 part 'episode.g.dart';
 
-@JsonSerializable()
+// @JsonSerializable()
 class Episode {
   String? episodeName;
 

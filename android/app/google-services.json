@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "737949834650",
+    "project_id": "dizi-ayraci",
+    "storage_bucket": "dizi-ayraci.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737949834650:android:2303b51618dd23f2f62e23",
+        "android_client_info": {
+          "package_name": "com.example.dizi_ayiraci"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737949834650-81evi0qrtas52voncl4k9vqvaulb3kib.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dizi_ayiraci",
+            "certificate_hash": "5b9103ef60bdb134443e14e817b8e94c13a46924"
+          }
+        },
+        {
+          "client_id": "737949834650-203n15cfntpvbs70teb1e51s1r0fem5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxz8lCcpDe6cbaXDOt3KnKgubHbTazJ4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737949834650-203n15cfntpvbs70teb1e51s1r0fem5n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

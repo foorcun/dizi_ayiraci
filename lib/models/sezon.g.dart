@@ -10,13 +10,13 @@ Sezon _$SezonFromJson(Map<String, dynamic> json) {
   return Sezon(
     json['sezonAdi'] as String,
     (json['episodes'] as List)
-        ?.map((e) =>
+        .map((e) =>
             e == null ? null : Episode.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+        .toList(),
   );
 }
 
 Map<String, dynamic> _$SezonToJson(Sezon instance) => <String, dynamic>{
       'sezonAdi': instance.sezonAdi,
-      'episodes': instance.episodes?.map((e) => e?.toJson())?.toList(),
+      'episodes': instance.episodes?.map((e) => e?.toJson()).toList(),
     };

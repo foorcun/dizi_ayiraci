@@ -1,10 +1,10 @@
 import 'package:dizi_ayiraci/data/episode_service.dart';
 import 'package:dizi_ayiraci/models/episode.dart';
-import 'package:json_annotation/json_annotation.dart';
+// import 'package:json_annotation/json_annotation.dart';
 
 part 'sezon.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+// @JsonSerializable(explicitToJson: true)
 class Sezon {
   String? sezonAdi;
 

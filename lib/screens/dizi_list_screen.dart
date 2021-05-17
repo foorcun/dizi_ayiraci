@@ -74,7 +74,7 @@ class DizisListScreen extends StatelessWidget {
             print("suna tıklandı.");
             print(list[index].diziAdi);
             print("tiklananDiziBloc.setTiklananDizi( de diziAdi " +
-                tiklananDiziBloc.getTiklananDizi().diziTiklanan!.diziAdi!);
+                tiklananDiziBloc.getTiklananDizi().diziTiklanan!.diziAdi);
           },
           trailing: IconButton(
             icon: Icon(Icons.add_shopping_cart),

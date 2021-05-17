@@ -1,9 +1,9 @@
 import 'package:dizi_ayiraci/models/sezon.dart';
-import 'package:json_annotation/json_annotation.dart';
+// import 'package:json_annotation/json_annotation.dart';
 
 part 'dizi.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+// @JsonSerializable(explicitToJson: true)
 class Dizi {
   String diziAdi;
   String? fotoLink;
