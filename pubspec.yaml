@@ -9,8 +9,8 @@ environment:
 
 
 dependencies:
-  cloud_firestore:
-  firebase_core:
+  cloud_firestore: "^2.2.0"
+  firebase_core: "^1.2.0"
   # json_annotation: ^3.0.1
   # json_annotation:
   flutter:
