@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dizi_ayiraci/blocs/dizi_bloc.dart';
+import 'package:dizi_ayiraci/data/firebase_dizi_service.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/screens/dizi_list_screen.dart';
 import 'package:dizi_ayiraci/screens/dizi_screen.dart';
@@ -51,51 +53,67 @@ class MyApp extends StatelessWidget {
     // print("moviesRef.id " + moviesRef.id); //çalışıyor
     // print("doc " + moviesRef.doc("bEaBU6L7RrohlNTftTvA").toString());//çalışıyor
 
-    //  refi.getDocuments().then((qS){qS.documents.forEach((element){
-    //    print(element);
-    //  })});
-    // print("doc " +
-    //     moviesRef.doc("bEaBU6L7RrohlNTftTvA").snapshots()[0].toString());
-    // print("docAfter " + moviesRef.doc("bEaBU6L7RrohlNTftTvA").get("dizi-adi"));
-
-    // refi.getDocuments().then((qS) {
-    //   qS.documents.forEach((doc) {
-    //     print(doc.data);
-    //   });
-    // });
-
-    // refi.doc().get().then((qS) {
-    //   qS.data()!.toString();
-    //   // .forEach((doc) {
-    //   //   print(doc.data);
-    //   // });
     getTheHell() async {
       var response = await movrefi.get();
-      print(response.data());
+      print("response.data() " + response.data().toString());
     }
 
-    print(refi.id);
+    print("refi.id " + refi.id);
     getTheHell();
     //});
+    // diziBloc.printAll();
+
+    // var got = FirebaseDiziService().getAll();
+    // got.then((value) {
+    //   value.forEach((dizi) {
+    //     print("service ten " + dizi.diziAdi);
+    //   });
+    // });
 
     return MaterialApp(
       routes: {
         "/": (BuildContext context) => DizisListScreen(),
-        // "//": (BuildContext context) => FireTest(),
+        "//": (BuildContext context) => FireTest(),
         "/dizi": (BuildContext context) => DiziScreen()
       },
-      initialRoute: "/",
+      initialRoute: "//",
     );
   }
 }
 
-// class FireTest extends StatefulWidget {
-//   @override
-//   _FireTestState createState() => _FireTestState();
-// }
+class FireTest extends StatefulWidget {
+  @override
+  _FireTestState createState() => _FireTestState();
+}
 
-// class _FireTestState extends State<FireTest> {
-//   final Future<FirebaseApp> _initF = Firebase.initializeApp();
+class _FireTestState extends State<FireTest> {
+  final Future<FirebaseApp> _initF = Firebase.initializeApp();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        StreamBuilder<DocumentSnapshot>(
+          stream: movrefi.snapshots(),
+          builder: (context, AsyncSnapshot asyncSnapshot) {
+            // return Text('${asyncSnapshot.data.data()}');
+            return Text(asyncSnapshot.data.data()["diziAdi"]);
+          },
+        ),
+        // StreamBuilder<DocumentSnapshot>(
+        // StreamBuilder(
+        //   initialData: diziBloc.getAllFire(),
+        //   stream: diziBloc.getStream,
+        //   builder: (context, snapshot) {
+        //     if (snapshot.hasData) {
+        //       return Text(snapshot.data!["diziAdi"]);
+        //     }
+        //     return Text('${snapshot.data!.toString()}');
+        //   },
+        // ),
+      ],
+    );
+  }
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -116,30 +134,30 @@ class MyApp extends StatelessWidget {
 //       },
 //     );
 //   }
-// }
+}
 
-// class ErrorWidgetBu extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Text("ErrorWidgetBu");
-//   }
-// }
+class ErrorWidgetBu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text("ErrorWidgetBu");
+  }
+}
 
-// class MyAwesomeApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         body: Column(
-//       children: [
-//         Text("MyAwesomeApp"),
-//       ],
-//     ));
-//   }
-// }
+class MyAwesomeApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Column(
+      children: [
+        Text("MyAwesomeApp"),
+      ],
+    ));
+  }
+}
 
-// class Loading extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Text("Loading");
-//   }
-// }
+class Loading extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text("Loading");
+  }
+}

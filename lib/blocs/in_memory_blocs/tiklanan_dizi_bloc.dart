@@ -18,10 +18,10 @@ class TiklananDiziBloc {
   //   seciliDiziService.printAll();
   // }
 
-  startFakeData() {
-    // TODO: implement startFakeData
-    TiklananDiziService().startFakeData();
-  }
+  // startFakeData() {
+  //   // TODO: implement startFakeData
+  //   TiklananDiziService().startFakeData();
+  // }
 
   setTiklananDizi(String diziName) {
     print("setTiklananDizi: " + diziName);

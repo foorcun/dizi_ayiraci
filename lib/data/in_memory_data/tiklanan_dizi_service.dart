@@ -30,10 +30,10 @@ class TiklananDiziService {
     return null;
   }
 
-  startFakeData() {
-    // TODO: implement startFakeData
-    tiklananDizi.testDataStarter();
-  }
+  // startFakeData() {
+  //   // TODO: implement startFakeData
+  //   tiklananDizi.testDataStarter();
+  // }
 
   setTiklananDizi(Dizi dizi) {
     // tiklananDizi.diziTiklanan = null;

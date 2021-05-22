@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:dizi_ayiraci/data/dizi_service.dart';
+import 'package:dizi_ayiraci/data/firebase_dizi_service.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/settings/servicesettings.dart';
 
@@ -14,10 +15,17 @@ class DiziBloc {
 
   List<Dizi> getAll() {
     return seciliDiziService.getAll();
+    // return FirebaseDiziService().getAll();
+  }
+
+  Future<List<Dizi>> getAllFire() async {
+    //  return seciliDiziService.getAll();
+    return await FirebaseDiziService().getAll();
   }
 
   void printAll() {
     seciliDiziService.printAll();
+    // FirebaseDiziService().printAll();
   }
 
   Dizi? findByDiziName(String diziName) {
