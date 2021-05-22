@@ -4,6 +4,7 @@ import 'package:dizi_ayiraci/data/firebase_dizi_service.dart';
 import 'package:dizi_ayiraci/models/dizi.dart';
 import 'package:dizi_ayiraci/screens/dizi_list_screen.dart';
 import 'package:dizi_ayiraci/screens/dizi_screen.dart';
+import 'package:dizi_ayiraci/screens/fire_dizi_list_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -73,10 +74,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         "/": (BuildContext context) => DizisListScreen(),
+        "///": (BuildContext context) => FireDizisListScreen(),
         "//": (BuildContext context) => FireTest(),
         "/dizi": (BuildContext context) => DiziScreen()
       },
-      initialRoute: "//",
+      initialRoute: "///",
     );
   }
 }
