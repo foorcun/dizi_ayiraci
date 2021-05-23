@@ -13,48 +13,50 @@ class FireDizisListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Dizilerim"),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.shopping_cart),
-              onPressed: () => Navigator.pushNamed(
-                    context,
-                    "/dizi",
-                    // arguments: tiklananDiziBloc.getTiklananDizi().diziTiklanan,
-                  ))
-        ],
-      ),
-      // body: buildDiziList(),
-      // body: StreamBuilder<DocumentSnapshot>(
-      //   stream: diziDocumentRef.snapshots(),
-      //   builder: (context, AsyncSnapshot asyncSnapshot) {
-      //     // return Text('${asyncSnapshot.data.data()}');
-      //     return Text(asyncSnapshot.data.data()["diziAdi"]);
-      //   },
-      // ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Dizilerim"),
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () => Navigator.pushNamed(
+                      context,
+                      "/dizi",
+                      // arguments: tiklananDiziBloc.getTiklananDizi().diziTiklanan,
+                    ))
+          ],
+        ),
+        // body: buildDiziList(),
+        // body: StreamBuilder<DocumentSnapshot>(
+        //   stream: diziDocumentRef.snapshots(),
+        //   builder: (context, AsyncSnapshot asyncSnapshot) {
+        //     // return Text('${asyncSnapshot.data.data()}');
+        //     return Text(asyncSnapshot.data.data()["diziAdi"]);
+        //   },
+        // ),
 
-      body: StreamBuilder<QuerySnapshot>(
-        stream: rootCollectionRef.snapshots(),
-        builder: (context, AsyncSnapshot asyncSnapshot) {
-          // return Text('${asyncSnapshot.data.data()}');
+        body: StreamBuilder<QuerySnapshot>(
+          stream: rootCollectionRef.snapshots(),
+          builder: (context, AsyncSnapshot asyncSnapshot) {
+            // return Text('${asyncSnapshot.data.data()}');
 
-          List<DocumentSnapshot> listOfDocumentSnap = asyncSnapshot.data.docs;
-          // Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')) return Text('${listOfDocumentSnap[0].data()!["diziAdi"]}');
-          // return Flexible(
-          //   child: ListView.builder(
-          //       itemCount: listOfDocumentSnap.length,
-          //       itemBuilder: (context, index) =>
-          //           Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')),
-          // );
-          return SingleChildScrollView(
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: childrenOfFire(listOfDocumentSnap),
-            ),
-          );
-        },
+            List<DocumentSnapshot> listOfDocumentSnap = asyncSnapshot.data.docs;
+            // Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')) return Text('${listOfDocumentSnap[0].data()!["diziAdi"]}');
+            // return Flexible(
+            //   child: ListView.builder(
+            //       itemCount: listOfDocumentSnap.length,
+            //       itemBuilder: (context, index) =>
+            //           Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')),
+            // );
+            return SingleChildScrollView(
+              child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: childrenOfFire(listOfDocumentSnap),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -122,23 +124,10 @@ class FireDizisListScreen extends StatelessWidget {
     List<Widget> listW = [];
 
     listOfDocumentSnap.forEach((element) {
-      listW.add(Text('${element.data()!["diziAdi"]}'));
+      // listW.add(Text('${element.data()!["diziAdi"]}'));
+      listW.add(DiziListTile(element.data()!["diziAdi"]));
     });
-    listOfDocumentSnap.forEach((element) {
-      listW.add(Text('${element.data()!["diziAdi"]}'));
-    });
-    listOfDocumentSnap.forEach((element) {
-      listW.add(Text('${element.data()!["diziAdi"]}'));
-    });
-    listOfDocumentSnap.forEach((element) {
-      listW.add(Text('${element.data()!["diziAdi"]}'));
-    });
-    listOfDocumentSnap.forEach((element) {
-      listW.add(Text('${element.data()!["diziAdi"]}'));
-    });
-    listOfDocumentSnap.forEach((element) {
-      listW.add(Text('${element.data()!["diziAdi"]}'));
-    });
+
     // Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')) return
     // Text('${listOfDocumentSnap[0].data()!["diziAdi"]}');
 
@@ -149,4 +138,21 @@ class FireDizisListScreen extends StatelessWidget {
 
     return listW;
   }
+}
+
+Widget DiziListTile(String diziAdi) {
+  //bu widget donduren bir fonksiyon, statefull ya da less değil
+  return InkWell(
+    onTap: () => print(diziAdi),
+    child: Card(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(diziAdi),
+        ),
+      ],
+    )),
+  );
 }
