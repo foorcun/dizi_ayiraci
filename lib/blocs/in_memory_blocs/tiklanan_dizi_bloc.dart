@@ -10,6 +10,8 @@ class TiklananDiziBloc {
 
   Stream get getStream => diziStreamController.stream;
 
+  String? tiklananDiziString;
+
   // List<Dizi> getAll() {
   //   return seciliDiziService.getAll();
   // }
@@ -18,14 +20,19 @@ class TiklananDiziBloc {
   //   seciliDiziService.printAll();
   // }
 
-  startFakeData() {
-    // TODO: implement startFakeData
-    TiklananDiziService().startFakeData();
-  }
+  // startFakeData() {
+  //   // TODO: implement startFakeData
+  //   TiklananDiziService().startFakeData();
+  // }
 
   setTiklananDizi(String diziName) {
     print("setTiklananDizi: " + diziName);
     TiklananDiziService().setTiklananDizi(diziBloc.findByDiziName(diziName)!);
+  }
+
+  setTiklananDiziString(String diziName) {
+    print("setTiklananDizi: " + diziName);
+    tiklananDiziString = diziName;
   }
 
   TiklananDizi getTiklananDizi() {

@@ -30,6 +30,24 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCp2VlBSfSDnh2-M1SyLTUwEAjxCueqLKs",
+        authDomain: "dizi-ayraci.firebaseapp.com",
+        projectId: "dizi-ayraci",
+        storageBucket: "dizi-ayraci.appspot.com",
+        messagingSenderId: "737949834650",
+        appId: "1:737949834650:web:c1424bd6c4883129f62e23"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+</script>
+
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->

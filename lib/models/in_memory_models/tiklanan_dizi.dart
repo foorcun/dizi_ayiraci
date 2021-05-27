@@ -14,10 +14,10 @@ class TiklananDizi {
     _sezonTiklanan = sezonTiklanan;
   }
 
-  testDataStarter() {
-    diziTiklanan = diziBloc.getAll()[0];
-    sezonTiklanan = diziBloc.getAll()[0].sezons![0];
-  }
+  // testDataStarter() a {
+  //   diziTiklanan = await diziBloc.getAll()[0];
+  //   sezonTiklanan = diziBloc.getAll()[0].sezons![0];
+  // }
 
   Dizi? get diziTiklanan {
     return _diziTiklanan;

@@ -39,31 +39,27 @@ class DiziService extends DiziServiceAbstract {
   }
 
   printAll() {
-    int i = 0;
-    dizis.forEach((dizi) => {
-          print("dizi diziAdi $i : " +
-              dizi.diziAdi +
-              " dizi fotoLink $i : " +
-              dizi.fotoLink! +
-              " dizi sezonSayisi $i : " +
-              dizi.sezonSayisi.toString() +
-              " dizi sezons sayısı length ile $i : " +
-              dizi.sezons!.length.toString()),
-          " dizi ilksezon episode sayısı length ile $i : " +
-              dizi.sezons![0]!.episodes!.length.toString(),
-          i = i + 1
-        });
+    this.getAll();
+
+    // int i = 0;
+    // dizis.forEach((dizi) => {
+    //       print("dizi diziAdi $i : " +
+    //           dizi.diziAdi +
+    //           " dizi fotoLink $i : " +
+    //           dizi.fotoLink! +
+    //           " dizi sezonSayisi $i : " +
+    //           dizi.sezonSayisi.toString() +
+    //           " dizi sezons sayısı length ile $i : " +
+    //           dizi.sezons!.length.toString()),
+    //       " dizi ilksezon episode sayısı length ile $i : " +
+    //           dizi.sezons![0]!.episodes!.length.toString(),
+    //       i = i + 1
+    //     });
   }
 
   void startFakeData() {
-    // if (dizis.isEmpty) {
-    //   for (var i = 0; i < sahteSnapshot.length; i++) {
-    //     // anketItems[i] = this.fromMap(sahteSnapshot[i]);
-    //     dizis.add(this.fromMap(sahteSnapshot[i]));
-    //   }
-    // }
-    List<dynamic> data = jsonDecode(sahteString);
-    dizis = data.map((data) => Dizi.fromJson(data)).toList();
+    // List<dynamic> data = jsonDecode(sahteString);
+    // dizis = data.map((data) => Dizi.fromJson(data)) as Future<List<Dizi>>.toList();
   }
 
   // Dizi fromMap(Map<String, dynamic> mapItem) {
@@ -129,14 +125,14 @@ class DiziService extends DiziServiceAbstract {
   Dizi? findByDiziName(String diziName) {
     Dizi? _dizi;
 
-    dizis.forEach((dizi) {
-      // print("dizi.diziAdi " + dizi.diziAdi);
-      if (dizi.diziAdi == diziName) {
-        print("bulunan dizi" + dizi.diziAdi);
-        _dizi = dizi;
-      }
-    });
-    print("_dizi adı " + _dizi!.diziAdi);
+    // dizis.forEach((dizi) {
+    //   // print("dizi.diziAdi " + dizi.diziAdi);
+    //   if (dizi.diziAdi == diziName) {
+    //     print("bulunan dizi" + dizi.diziAdi);
+    //     _dizi = dizi;
+    //   }
+    // });
+    // print("_dizi adı " + _dizi!.diziAdi);
     return _dizi;
   }
 }
