@@ -163,7 +163,7 @@ Widget DiziListTile(BuildContext context, String diziAdi) {
         //   // arguments: Dizi.withMap(list[index]),
       );
       print("suna tıklandı. DiziListTile");
-      print(diziAdi);
+      print("diziAdi " + diziAdi);
     },
     child: Card(
         child: Column(
