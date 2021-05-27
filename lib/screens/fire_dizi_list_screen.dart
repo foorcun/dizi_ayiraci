@@ -19,12 +19,14 @@ class FireDizisListScreen extends StatelessWidget {
           title: Text("Dizilerim"),
           actions: <Widget>[
             IconButton(
-                icon: Icon(Icons.shopping_cart),
-                onPressed: () => Navigator.pushNamed(
-                      context,
-                      "/dizi",
-                      // arguments: tiklananDiziBloc.getTiklananDizi().diziTiklanan,
-                    ))
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {},
+              // onPressed: () => Navigator.pushNamed(
+              //       context,
+              //       "/dizi",
+              //       // arguments: tiklananDiziBloc.getTiklananDizi().diziTiklanan,
+              //     ))
+            )
           ],
         ),
         // body: buildDiziList(),
@@ -52,7 +54,7 @@ class FireDizisListScreen extends StatelessWidget {
             return SingleChildScrollView(
               child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
-                children: childrenOfFire(listOfDocumentSnap),
+                children: childrenOfFire(context, listOfDocumentSnap),
               ),
             );
           },
@@ -90,20 +92,20 @@ class FireDizisListScreen extends StatelessWidget {
           title: Text(list[index].diziAdi),
           subtitle: Text(list[index].fotoLink),
           onTap: () {
-            tiklananDiziBloc.setTiklananDizi(list[index].diziAdi);
-            Navigator.pushNamed(
-              context,
-              "/dizi",
-              // // arguments: secilenDizi = list[index],
-              // arguments: Dizi.withData(
-              //     list[index].diziAdi,
-              //     list[index].fotoLink,
-              //     list[index].sezonSayisi,
-              //     list[index].sezons,
-              //     list[index].epsList),
+            // tiklananDiziBloc.setTiklananDizi(list[index].diziAdi);
+            // Navigator.pushNamed(
+            //   context,
+            //   "/diziFire",
+            //   // // arguments: secilenDizi = list[index],
+            //   // arguments: Dizi.withData(
+            //   //     list[index].diziAdi,
+            //   //     list[index].fotoLink,
+            //   //     list[index].sezonSayisi,
+            //   //     list[index].sezons,
+            //   //     list[index].epsList),
 
-              // arguments: Dizi.withMap(list[index]),
-            );
+            //   // arguments: Dizi.withMap(list[index]),
+            // );
             print("suna tıklandı.");
             print(list[index].diziAdi);
             print("tiklananDiziBloc.setTiklananDizi( de diziAdi " +
@@ -120,12 +122,13 @@ class FireDizisListScreen extends StatelessWidget {
     );
   }
 
-  List<Widget> childrenOfFire(List<DocumentSnapshot> listOfDocumentSnap) {
+  List<Widget> childrenOfFire(
+      BuildContext context, List<DocumentSnapshot> listOfDocumentSnap) {
     List<Widget> listW = [];
 
     listOfDocumentSnap.forEach((element) {
       // listW.add(Text('${element.data()!["diziAdi"]}'));
-      listW.add(DiziListTile(element.data()!["diziAdi"]));
+      listW.add(DiziListTile(context, element.data()!["diziAdi"]));
     });
 
     // Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')) return
@@ -140,10 +143,28 @@ class FireDizisListScreen extends StatelessWidget {
   }
 }
 
-Widget DiziListTile(String diziAdi) {
+Widget DiziListTile(BuildContext context, String diziAdi) {
   //bu widget donduren bir fonksiyon, statefull ya da less değil
   return InkWell(
-    onTap: () => print(diziAdi),
+    onTap: () {
+      //tiklananDiziBloc.getTiklananDizi().diziTiklanan!.diziAdi);
+      tiklananDiziBloc.setTiklananDiziString(diziAdi);
+      Navigator.pushNamed(
+        context,
+        "/diziFire",
+        //   // // arguments: secilenDizi = list[index],
+        //   // arguments: Dizi.withData(
+        //   //     list[index].diziAdi,
+        //   //     list[index].fotoLink,
+        //   //     list[index].sezonSayisi,
+        //   //     list[index].sezons,
+        //   //     list[index].epsList),
+
+        //   // arguments: Dizi.withMap(list[index]),
+      );
+      print("suna tıklandı. DiziListTile");
+      print(diziAdi);
+    },
     child: Card(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

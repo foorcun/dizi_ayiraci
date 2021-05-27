@@ -10,6 +10,8 @@ class TiklananDiziBloc {
 
   Stream get getStream => diziStreamController.stream;
 
+  String? tiklananDiziString;
+
   // List<Dizi> getAll() {
   //   return seciliDiziService.getAll();
   // }
@@ -26,6 +28,11 @@ class TiklananDiziBloc {
   setTiklananDizi(String diziName) {
     print("setTiklananDizi: " + diziName);
     TiklananDiziService().setTiklananDizi(diziBloc.findByDiziName(diziName)!);
+  }
+
+  setTiklananDiziString(String diziName) {
+    print("setTiklananDizi: " + diziName);
+    tiklananDiziString = diziName;
   }
 
   TiklananDizi getTiklananDizi() {
