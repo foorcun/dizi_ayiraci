@@ -5,3 +5,5 @@ final firestoreManager = FirebaseFirestore.instance;
 final CollectionReference rootCollectionRef =
     firestoreManager.collection('dizi-ayraci');
 final diziDocumentRef = rootCollectionRef.doc("bEaBU6L7RrohlNTftTvA");
+final sezonCollectionRef =
+    rootCollectionRef.doc("bEaBU6L7RrohlNTftTvA").collection("sezons");

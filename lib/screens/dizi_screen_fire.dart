@@ -20,6 +20,7 @@ class DiziScreenFire extends StatefulWidget {
 class _DiziScreenFireState extends State<DiziScreenFire> {
   String diziDocLoading = "Dizi doc loading...";
   List<Widget> rowList = [];
+  List<Widget> columnList = [];
 
   void _incrementCounter() async {
     // This call to setState tells the Flutter framework that something has
@@ -64,6 +65,19 @@ class _DiziScreenFireState extends State<DiziScreenFire> {
     });
   }
 
+  void setEpisode(List<Widget> columnList) {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+
+      this.columnList = columnList;
+      // this.columnList.add(Text("episodes gelcek"));
+    });
+  }
+
   // @override
   // void initState() {
   //   // TODO: implement initState
@@ -82,7 +96,11 @@ class _DiziScreenFireState extends State<DiziScreenFire> {
 
     getTheDocIDOfDizi().then((value) {
       setDoc(value);
-      sezonRow().then((value) => setSezon(value));
+      sezonRow().then((value) {
+        setSezon(value);
+        //
+        episodeColumn().then((value) => setEpisode(value));
+      });
     });
     // sezonRow().then((value) => setSezon(value));
   }
@@ -121,34 +139,52 @@ class _DiziScreenFireState extends State<DiziScreenFire> {
                 // ],
               ),
             ),
-            StreamBuilder<QuerySnapshot>(
-              stream: rootCollectionRef.snapshots(),
-              builder: (context, AsyncSnapshot asyncSnapshot) {
-                // return Text('${asyncSnapshot.data.data()}');
-
-                List<DocumentSnapshot> listOfDocumentSnap =
-                    asyncSnapshot.data.docs;
-                // Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')) return Text('${listOfDocumentSnap[0].data()!["diziAdi"]}');
-                // return Flexible(
-                //   child: ListView.builder(
-                //       itemCount: listOfDocumentSnap.length,
-                //       itemBuilder: (context, index) =>
-                //           Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')),
-                // );
-                return SingleChildScrollView(
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: printDocids(listOfDocumentSnap),
-
-                    // [
-                    //   Text(listOfDocumentSnap.first.id),
-                    //   Text(listOfDocumentSnap[1].id),
-                    //   // listOfDocumentSnap.forEach((element) {return Text(element.id),});
-                    //                       ],
-                  ),
-                );
-              },
+            SingleChildScrollView(
+              child: Column(
+                children: columnList,
+                // children: sezonRow(),
+                //  [
+                //   Text("SingleChildScrollView"),
+                //   Text("SingleChildScrollView "),
+                //   Text("SingleChildScrollView "),
+                //   Text("SingleChildScrollView "),
+                //   Text("SingleChildScrollView "),
+                //   Text("SingleChildScrollView "),
+                //   Text("SingleChildScrollView "),
+                //   Text("SingleChildScrollView "),
+                // ],
+              ),
             ),
+
+            // StreamBuilder<QuerySnapshot>(
+            //   stream: rootCollectionRef.snapshots(),
+            //   builder: (context, AsyncSnapshot asyncSnapshot) {
+            //     // return Text('${asyncSnapshot.data.data()}');
+
+            //     List<DocumentSnapshot> listOfDocumentSnap =
+            //         asyncSnapshot.data.docs;
+            //     // Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')) return Text('${listOfDocumentSnap[0].data()!["diziAdi"]}');
+            //     // return Flexible(
+            //     //   child: ListView.builder(
+            //     //       itemCount: listOfDocumentSnap.length,
+            //     //       itemBuilder: (context, index) =>
+            //     //           Text('${listOfDocumentSnap[index].data()!["diziAdi"]}')),
+            //     // );
+            //     return SingleChildScrollView(
+            //       child: Column(
+            //         // crossAxisAlignment: CrossAxisAlignment.start,
+            //         // children: printDocids(listOfDocumentSnap),
+            //         children: printEpisodeids(listOfDocumentSnap),
+
+            //         // [
+            //         //   Text(listOfDocumentSnap.first.id),
+            //         //   Text(listOfDocumentSnap[1].id),
+            //         //   // listOfDocumentSnap.forEach((element) {return Text(element.id),});
+            //         //                       ],
+            //       ),
+            //     );
+            //   },
+            // ),
           ],
         )),
         // body: SingleChildScrollView(
@@ -169,6 +205,15 @@ class _DiziScreenFireState extends State<DiziScreenFire> {
         // ),
       ),
     );
+  }
+
+  List<Widget> printEpisodeids(List<DocumentSnapshot> listOfDocumentSnap) {
+    List<Text> listText = [];
+
+    listOfDocumentSnap.forEach((element) {
+      listText.add(Text(element.id));
+    });
+    return listText;
   }
 
   List<Widget> printDocids(List<DocumentSnapshot> listOfDocumentSnap) {
@@ -194,6 +239,19 @@ class _DiziScreenFireState extends State<DiziScreenFire> {
     return response.docs.first.id;
   }
 
+  Future<String> getTheEpisodeIDOfDizi() async {
+    var response =
+        await sezonCollectionRef.where("sezonAdi", isEqualTo: "1. Sezon").get();
+    print("response.docs.first.id)" +
+        response.docs.first
+            .id); // burda da diziAdi=Dark olan documantSnapshot (yani parentı aslında )
+    print("response.docs.length.toString()" +
+        response.docs.length.toString()); // length 1 adet
+    diziDocLoading = response.docs.first.id;
+    //setDoc(response.docs.first.id);
+    return response.docs.first.id;
+  }
+
   Future<List<Widget>> sezonRow() async {
     List<Widget> rowList = [];
 
@@ -201,7 +259,10 @@ class _DiziScreenFireState extends State<DiziScreenFire> {
         'dizi-ayraci/$diziDocLoading/sezons'); //.doc(diziDocLoading);
     var response = await sezonsCollectionrefi.get();
     response.docs.forEach((element) {
-      rowList.add(Text(element.data()["sezonAdi"]));
+      rowList.add(Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(element.data()["sezonAdi"]),
+      ));
       print('element.data()["sezonAdi"]' + element.data()["sezonAdi"]);
       // rowList.add(SizedBox(
       //   width: 10.0,
@@ -210,7 +271,30 @@ class _DiziScreenFireState extends State<DiziScreenFire> {
     // response.data().co
     return rowList;
   }
+
+  Future<List<Widget>> episodeColumn() async {
+    List<Widget> columnList = [];
+
+    var episodesCollectionrefi = firestoreManager.collection(
+        'dizi-ayraci/$diziDocLoading/sezons/1.sezon-doc/episodes'); //.doc(diziDocLoading);
+
+    var response = await episodesCollectionrefi.get();
+    response.docs.forEach((element) {
+      columnList.add(Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(element.data()["episodeName"]),
+      ));
+      //
+      print('element.data()["episodeName"]' + element.data()["episodeName"]);
+      // rowList.add(SizedBox(
+      //   width: 10.0,
+      // ));
+    });
+    // response.data().co
+    return columnList;
+  }
 }
+
 // class DiziScreenFire extends StatefulWidget {
 //   @override
 //   _DiziScreenFireState createState() => _DiziScreenFireState();
